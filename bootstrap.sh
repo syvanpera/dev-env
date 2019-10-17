@@ -1,37 +1,27 @@
 #!/bin/bash
 set -e
 
+BRANCH="master"
+DISTROS=(fedora ubuntu)
+
 if [ ! "$HOME" == "$PWD" ]; then
   echo "This script is intended to be run from the user's home path: $HOME"
   exit 1
 fi
 
+OS=""
 
-# DEFAULTS
-BRANCH="master"
-ANSIBLE_ARGS=""
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    echo "Distribution identified as $NAME"
+fi
 
-# Use -gt 1 to consume two arguments per pass in the loop (e.g. each
-# argument has a corresponding value to go with it).
-# Use -gt 0 to consume one or more arguments per pass in the loop (e.g.
-# some arguments don't have a corresponding value to go with it such
-# as in the --default example).
-# note: if this is set to -gt 0 the /etc/hosts part is not recognized ( may be a bug )
-while [[ $# -gt 1 ]]
-do
-key="$1"
-
-case $key in
-    -b|--branch)
-    BRANCH="$2"
-    shift # past argument
-    ;;
-    *)
-            # unknown option
-    ;;
-esac
-shift # past argument or value
-done
+if [[ ! " ${DISTROS[@]} " =~ " ${ID} " ]]; then
+  echo "Unsupported distribution"
+  echo "Currently only following distros are supported: ${DISTROS[@]}"
+  exit 1
+fi
 
 # BOOTSTRAP
 
@@ -54,4 +44,4 @@ cd .dev-env
 git checkout ${BRANCH}
 
 # Run Ansible playbook
-ansible-playbook ubuntu.yml -i hosts -vv ${ANSIBLE_ARGS}
+ansible-playbook ubuntu.yml -i hosts -vv
