@@ -18,5 +18,6 @@
   become: yes
   apt:
     state: latest
+    force_apt_get: yes
     update_cache: true
     name: "{{ packages }}"

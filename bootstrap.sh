@@ -41,6 +41,7 @@ sudo apt-get --assume-yes upgrade
 
 # Install Ansible & Git
 sudo apt-get --assume-yes install ansible
+sudo apt-get --assume-yes install python3-distutils
 sudo apt-get --assume-yes install git
 
 # Clone dev-env repo if not already present
