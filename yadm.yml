@@ -1,0 +1,4 @@
+- include_vars: vars.yml
+- command: "yadm clone {{ yadm_repo_url }}"
+    become: yes
+    become_user: "{{ username }}"

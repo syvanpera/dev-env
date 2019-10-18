@@ -1,2 +1,3 @@
 username: tuomo
 home: /home/{{ username }}
+yadm_repo_url: https://github.com/syvanpera/dotfiles.git

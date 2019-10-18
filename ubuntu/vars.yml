@@ -3,6 +3,7 @@ remove_packages:
   - thunderbird
 install_packages:
   - fish
+  - tmux
   - neovim
   - emacs-gtk
   - ripgrep
