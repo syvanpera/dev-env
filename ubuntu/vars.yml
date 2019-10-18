@@ -12,6 +12,7 @@ install_packages:
   - curl
   - direnv
   - fzf
+binaries: []
 archived_binaries:
   exa:
    name: exa

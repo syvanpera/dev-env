@@ -2,6 +2,7 @@
 - hosts: localhost
   tasks:
     - include: "{{ distro }}/packages.yml"
+    - include: binaries.yml
     - include: archived-binaries.yml
     - include: yadm.yml
     - include: golang.yml

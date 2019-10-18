@@ -7,3 +7,8 @@ install_packages:
   - curl
   - fzf
   - exa
+binaries:
+  direnv:
+    name: direnv
+    url: https://github.com/direnv/direnv/releases/download/v2.20.0/direnv.linux-amd64
+archived_binaries: []
