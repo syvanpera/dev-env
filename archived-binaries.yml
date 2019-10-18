@@ -10,10 +10,12 @@
   with_items: "{{ check_archived_status.results }}"
   when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Extract archived binaries
+  become: yes
   unarchive: src=/tmp/{{ item.item.key }} dest={{ item.item.value.target_dir }}
   with_items: "{{ check_archived_status.results }}"
   when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Symlink extracted binaries
+  become: yes
   file: path={{ item.item.value.target_dir }}/{{ item.item.value.symlink }} src={{ item.item.value.target_dir }}/{{ item.item.value.original }} state=link
   with_items: "{{ check_archived_status.results }}"
   when: not item.stat.exists or item.item.value.force_reinstall|default (false)
