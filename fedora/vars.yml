@@ -1,4 +1,4 @@
-install_packages:
+packages:
   - fish
   - tmux
   - neovim

@@ -1,7 +1,5 @@
 repositories: []
-remove_packages:
-  - thunderbird
-install_packages:
+apt_packages:
   - gcc
   - fish
   - tmux
@@ -12,6 +10,10 @@ install_packages:
   - curl
   - direnv
   - fzf
+snap_packages:
+  go:
+    name: go
+    classic: yes
 binaries: []
 archived_binaries:
   exa:

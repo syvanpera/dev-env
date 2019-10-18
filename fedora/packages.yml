@@ -6,4 +6,4 @@
   dnf:
     state: latest
     update_cache: true
-    name: "{{ install_packages }}"
+    name: "{{ packages }}"

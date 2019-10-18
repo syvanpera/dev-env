@@ -1,9 +1,4 @@
 - include_vars: vars.yml
-- name: Install Go
-  become: yes
-  snap:
-    name: go
-    classic: yes
 - name: Install Go tooling
   become: yes
   become_user: "{{ username }}"
