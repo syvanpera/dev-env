@@ -22,10 +22,14 @@
     force_apt_get: yes
     update_cache: true
     name: "{{ remove_packages }}"
-- name: Install packages
+- name: Install apt packages
   become: yes
   apt:
     state: latest
     force_apt_get: yes
     update_cache: true
-    name: "{{ install_packages }}"
+    name: "{{ apt_packages }}"
+- name: Install snap packages
+  become: yes
+  snap:
+    name: "{{ snap_packages }}"
