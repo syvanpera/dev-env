@@ -1,0 +1,8 @@
+---
+- include_vars: vars.yml
+- name: Download archived binaries
+  get_url: url={{ item.item.value.url }} dest=/tmp/{{ item.item.key }}
+- name: Extract archived binaries
+  unarchive: src=/tmp/{{ item.item.key }} dest={{ item.item.value.target_dir }}
+- name: Symlink extracted binaries
+  file: path={{ item.item.value.target_dir }}/{{ item.item.value.symlink }} src={{ item.item.value.target_dir }}/{{ item.item.value.original }} state=link

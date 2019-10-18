@@ -2,13 +2,16 @@
 - hosts: localhost
   tasks:
    - include: apt.yml
+   - include: arvchived-binaries.yml
    - include: yadm.yml
    - include: golang.yml
    - include: rust.yml
    - include: cargo.yml
+   - include: customization.yml
+
    # - include: emacs.yml
    # - include: users.yml
-   - include: customization.yml
+   # - include: binaries.yml
    # - include: deb-packages.yml
    # - include: targz-apps.yml
    # - include: binaries.yml
