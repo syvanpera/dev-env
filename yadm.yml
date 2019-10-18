@@ -1,4 +1,5 @@
 - include_vars: vars.yml
-- command: "yadm clone {{ yadm_repo_url }}"
-    become: yes
-    become_user: "{{ username }}"
+- name: Initialize dotfiles
+  become: yes
+  become_user: "{{ username }}"
+  command: "yadm clone {{ yadm_repo_url }}"
