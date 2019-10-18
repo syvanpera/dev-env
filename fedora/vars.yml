@@ -1,0 +1,9 @@
+install_packages:
+  - fish
+  - tmux
+  - neovim
+  - emacs
+  - ripgrep
+  - curl
+  - fzf
+  - exa
