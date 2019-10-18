@@ -9,4 +9,5 @@ archived_binaries:
    original: exa-linux-x86_64
    symlink: exa
 cargo_packages:
-  - starship
+  starship:
+    binary: starship
