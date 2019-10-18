@@ -9,6 +9,7 @@ install_packages:
   - ripgrep
   - yadm
   - curl
+  - direnv
 # debs:
 #  dbeaver:
 #   name: DBeaver
