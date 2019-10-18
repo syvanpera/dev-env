@@ -1,20 +1,19 @@
 #!/bin/bash
-if [ ! -d "~/.local/share/fonts/" ]; then
-  mkdir ~/.local/share/fonts/
+
+FONT_DIR=$HOME/.local/share/fonts
+
+if [ ! -d "$FONT_DIR" ]; then
+  mkdir -p $FONT_DIR
 fi
 
-if [ ! -f "~/.local/share/fonts/PowerlineSymbols.otf" ]; then
-  wget -O ~/.local/share/fonts/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-  wget -O ~/.local/share/fonts/fontawesome-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/fontawesome-regular.ttf
-  wget -O ~/.local/share/fonts/fontawesome-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/fontawesome-regular.sh
-  wget -O ~/.local/share/fonts/devicons-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/devicons-regular.ttf
-  wget -O ~/.local/share/fonts/devicons-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/devicons-regular.sh
-  wget -O ~/.local/share/fonts/octicons-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/octicons-regular.ttf
-  wget -O ~/.local/share/fonts/octicons-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/octicons-regular.sh
+if [ ! -f "$FONT_DIR/PowerlineSymbols.otf" ]; then
+  wget -O $FONT_DIR/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+  wget -O $FONT_DIR/fontawesome-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/fontawesome-regular.ttf
+  wget -O $FONT_DIR/fontawesome-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/fontawesome-regular.sh
+  wget -O $FONT_DIR/devicons-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/devicons-regular.ttf
+  wget -O $FONT_DIR/devicons-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/devicons-regular.sh
+  wget -O $FONT_DIR/octicons-regular.ttf https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/octicons-regular.ttf
+  wget -O $FONT_DIR/octicons-regular.sh https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/build/octicons-regular.sh
 
-  fc-cache -vf ~/.local/share/fonts/
-fi
-
-if [ ! -d "~/.config/fontconfig/conf.d/" ]; then
-  mkdir -p ~/.config/fontconfig/conf.d/
+  fc-cache -vf $FONT_DIR
 fi
