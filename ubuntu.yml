@@ -3,6 +3,7 @@
   tasks:
    - include: apt.yml
    - include: yadm.yml
+   - include: emacs.yml
    # - include: users.yml
    # - include: deb-packages.yml
    # - include: targz-apps.yml

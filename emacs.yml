@@ -1,0 +1,10 @@
+- name: Check out Doom Emacs
+  git:
+    repo: 'https://github.com/hlissner/doom-emacs.git'
+    dest: '{{ home }}/.emacs.d'
+    version: develop
+
+- name: Run Doom Emacs installer
+  become: yes
+  become_user: "{{ username }}"
+  command: "{{ home }}/.emacs.d/bin/doom -y install"
