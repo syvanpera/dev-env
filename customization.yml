@@ -3,6 +3,6 @@
 - include: yadm.yml
 - name: Install custom fonts
   script: fonts.sh
-- name: Set fish as default shell
+- name: Change login shell to fish
   become: yes
   shell: "chsh -s $(which fish) {{ username }}"
