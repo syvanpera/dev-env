@@ -1,5 +1,13 @@
+- include_vars: vars.yml
 - name: Install Go
   become: yes
   snap:
     name: go
     classic: yes
+- name: Install Go tooling
+  become: yes
+  become_user: "{{ username }}"
+  command: path={{ home }}/.{{ item }} src={{ home }}/.dev-env/dotfiles/{{ item }} state=link force=yes
+  command: go get {{ item }}
+  with_items:
+   - golang.org/x/tools/cmd/goimports
