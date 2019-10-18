@@ -42,6 +42,8 @@ fi
 # Checkout specified branch
 cd .dev-env
 git checkout ${BRANCH}
+git fetch
+git reset --hard origin/${BRANCH}
 
 # Run Ansible playbook
 ansible-playbook ubuntu.yml -i hosts -vv
