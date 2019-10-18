@@ -1,8 +1,19 @@
 ---
 - include_vars: vars.yml
+- name: Check archived binary already at latest
+  stat:
+    path: "{{ item.value.target_dir }}/{{ item.value.original }}"
+  with_dict:  "{{ archived_binaries }}"
+  register: check_archived_status
 - name: Download archived binaries
   get_url: url={{ item.item.value.url }} dest=/tmp/{{ item.item.key }}
+  with_items: "{{ check_archived_status.results }}"
+  when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Extract archived binaries
   unarchive: src=/tmp/{{ item.item.key }} dest={{ item.item.value.target_dir }}
+  with_items: "{{ check_archived_status.results }}"
+  when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Symlink extracted binaries
   file: path={{ item.item.value.target_dir }}/{{ item.item.value.symlink }} src={{ item.item.value.target_dir }}/{{ item.item.value.original }} state=link
+  with_items: "{{ check_archived_status.results }}"
+  when: not item.stat.exists or item.item.value.force_reinstall|default (false)
