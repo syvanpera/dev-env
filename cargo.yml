@@ -1,0 +1,7 @@
+---
+- include_vars: vars.yml
+- name: Install Rust packages with Cargo
+  become: yes
+  become_user: "{{ username }}"
+  command: cargo install {{ item }}
+  with_list: "{{ cargo_packages }}"

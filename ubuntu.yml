@@ -5,6 +5,7 @@
    - include: yadm.yml
    - include: golang.yml
    - include: rust.yml
+   - include: cargo.yml
    # - include: emacs.yml
    # - include: users.yml
    - include: customization.yml
