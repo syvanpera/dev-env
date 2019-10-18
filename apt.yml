@@ -15,10 +15,17 @@
   become: yes
   apt_repository: repo={{ item.value.repository }}
   with_dict: "{{ repositories }}"
+- name: Remove packages
+  become: yes
+  apt:
+    state: absent
+    force_apt_get: yes
+    update_cache: true
+    name: "{{ remove_packages }}"
 - name: Install packages
   become: yes
   apt:
     state: latest
     force_apt_get: yes
     update_cache: true
-    name: "{{ packages }}"
+    name: "{{ install_packages }}"

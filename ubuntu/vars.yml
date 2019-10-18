@@ -1,5 +1,7 @@
 repositories: []
-packages:
+remove_packages:
+  - thunderbird
+install_packages:
   - fish
   - neovim
   - emacs-gtk
