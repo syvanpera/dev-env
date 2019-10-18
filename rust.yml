@@ -3,3 +3,5 @@
   become: yes
   become_user: "{{ username }}"
   shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  args:
+    warn: no
