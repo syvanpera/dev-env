@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - include: "{{ distro }}/packages.yml"
+    - include: archived-binaries.yml
+    - include: yadm.yml
+    - include: golang.yml
+    - include: rust.yml
+    - include: cargo.yml
+    - include: customization.yml

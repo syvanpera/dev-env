@@ -1,6 +1,6 @@
 ---
+- include_vars: ../vars.yml
 - include_vars: vars.yml
-- include_vars: ubuntu/vars.yml
 - name: Add apt keys
   become: yes
   apt_key: keyserver={{ item.value.keyserver }} id={{ item.value.key }}

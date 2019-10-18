@@ -2,7 +2,9 @@
 set -e
 
 BRANCH="master"
-DISTROS=(fedora ubuntu)
+DISTROS=(arch fedora ubuntu)
+
+DIR=$(dirname $0)
 
 if [ ! "$HOME" == "$PWD" ]; then
   echo "This script is intended to be run from the user's home path: $HOME"
@@ -25,15 +27,6 @@ fi
 
 # BOOTSTRAP
 
-# Upgrade packages
-sudo apt-get update
-sudo apt-get --assume-yes upgrade
-
-# Install Ansible & Git
-sudo apt-get --assume-yes install ansible
-sudo apt-get --assume-yes install python3-distutils
-sudo apt-get --assume-yes install git
-
 # Clone dev-env repo if not already present
 if [ ! -d ".dev-env" ]; then
   git clone --recursive https://github.com/syvanpera/dev-env.git .dev-env
@@ -45,5 +38,7 @@ git checkout ${BRANCH}
 git fetch
 git reset --hard origin/${BRANCH}
 
+source $ID/bootstrap.sh
+
 # Run Ansible playbook
-ansible-playbook ubuntu.yml -i hosts -vv
+ansible-playbook deploy.yml -i hosts -vv --extra-vars "distro=$ID"
