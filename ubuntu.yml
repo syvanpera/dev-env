@@ -2,7 +2,7 @@
 - hosts: localhost
   tasks:
    - include: apt.yml
-   - include: arvchived-binaries.yml
+   - include: archived-binaries.yml
    - include: yadm.yml
    - include: golang.yml
    - include: rust.yml
