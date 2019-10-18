@@ -1,5 +1,10 @@
 - include_vars: vars.yml
-- name: Initialize dotfiles
+- name: Check for existing yadm repo
+  stat:
+    path: "{{ home }}/.yadm/repo.git"
+  register: yadm_details
+- name: Initialize dotfiles with yadm
   become: yes
   become_user: "{{ username }}"
   command: "yadm clone {{ yadm_repo_url }}"
+  when: not yadm_details.stat.exists
