@@ -11,6 +11,7 @@ install_packages:
   - yadm
   - curl
   - direnv
+  - fzf
 # debs:
 #  dbeaver:
 #   name: DBeaver
