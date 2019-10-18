@@ -8,4 +8,5 @@
     - include: golang.yml
     - include: rust.yml
     - include: cargo.yml
+    - include: emacs.yml
     - include: customization.yml
