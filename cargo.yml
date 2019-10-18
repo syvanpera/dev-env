@@ -10,3 +10,4 @@
   become_user: "{{ username }}"
   command: "{{ home }}/.cargo/bin/cargo install {{ item.item.key }}"
   with_items: "{{ check_cargo_status.results }}"
+  when: not item.stat.exists or item.item.value.force_reinstall|default (false)
