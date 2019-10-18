@@ -1,7 +1,12 @@
 ---
 - include_vars: vars.yml
+- name: Check if Rust packages already exists
+  stat:
+    path: "{{ home }}/.cargo/bin/{{ item }}"
+  with_list:  "{{ cargo_packages }}"
+  register: check_cargo_status
 - name: Install Rust packages with Cargo
   become: yes
   become_user: "{{ username }}"
   command: "{{ home }}/.cargo/bin/cargo install {{ item }}"
-  with_list: "{{ cargo_packages }}"
+  with_items: "{{ check_cargo_status.results }}"

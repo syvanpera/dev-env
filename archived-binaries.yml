@@ -1,6 +1,6 @@
 ---
 - include_vars: vars.yml
-- name: Check archived binary already at latest
+- name: Check if archived binary already exists
   stat:
     path: "{{ item.value.target_dir }}/{{ item.value.original }}"
   with_dict:  "{{ archived_binaries }}"
