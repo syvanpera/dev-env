@@ -1,7 +1,7 @@
 repositories: []
 remove_packages:
   - thunderbird
-apt_packages:
+install_packages:
   - fish
   - tmux
   - neovim
@@ -9,8 +9,6 @@ apt_packages:
   - ripgrep
   - yadm
   - curl
-snap_packages:
-  - go
 # debs:
 #  dbeaver:
 #   name: DBeaver

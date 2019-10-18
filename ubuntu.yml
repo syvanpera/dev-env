@@ -3,6 +3,7 @@
   tasks:
    - include: apt.yml
    - include: yadm.yml
+   - include: golang.yml
    # - include: emacs.yml
    # - include: users.yml
    - include: customization.yml

@@ -1,0 +1,5 @@
+- name: Install Go
+  become: yes
+  snap:
+    name: go
+    classic: yes
