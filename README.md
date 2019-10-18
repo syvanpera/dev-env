@@ -7,10 +7,6 @@ Development Environment Configuration with Ansible
 ```shell
 wget -qO- https://raw.github.com/syvanpera/dev-env/master/bootstrap.sh | bash
 ```
-For testing purposes `bootstrap.sh` allows to define the branch with `-b|--branch <BRANCH>` (default is `master`):
-```shell
-wget -qO- https://raw.github.com/syvanpera/dev-env/master/bootstrap.sh | bash -s -- -b test-branch
-```
 
 # Disclaimer
 This is just for personal convenience. It's not intended to be highly configurable and I'm most likely not following Ansible's conventions and best practices.
@@ -18,68 +14,41 @@ This is just for personal convenience. It's not intended to be highly configurab
 # Content
 Note: if no version is specified it means the latest will be installed
 
-## Dev Tools
-* [vim](http://www.vim.org/)
-* [zsh](https://github.com/zsh-users/zsh)
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* [terminator](https://launchpad.net/terminator/)
-* [guake](https://github.com/Guake/guake/)
+## Essentials
+* [fish](https://fishshell.com/)
 * [git](https://git-scm.com/)
-* [hub](https://github.com/github/hub) ![Installed](https://img.shields.io/badge/current\-v2.12.2-blue.svg) [![GitHub release](https://img.shields.io/github/release/github/hub.svg?label=latest)](https://github.com/github/hub/releases/latest)
-* [jq](https://stedolan.github.io/jq/)
-* [keepassx](https://www.keepassx.org/)
-* [httpie](https://github.com/jkbrzt/httpie)
-* [kubectl](https://github.com/kubernetes/kubernetes) ![Installed](https://img.shields.io/badge/current\-v1.15.0-blue.svg) [![GitHub release](https://img.shields.io/github/release/kubernetes/kubernetes.svg?label=latest)](https://github.com/kubernetes/kubernetes/releases/latest)
-* [ammonite](https://github.com/lihaoyi/Ammonite) ![Installed](https://img.shields.io/badge/current\-v1.6.0-blue.svg) [![GitHub release](https://img.shields.io/github/release/lihaoyi/Ammonite.svg?label=latest)](https://github.com/lihaoyi/Ammonite/releases/latest)
-* [Meld](http://meldmerge.org/)
+* [tmux](https://github.com/tmux/tmux/)
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## SDKs & Runtimes
-* OpenJDK 8
-* [sbt](http://www.scala-sbt.org/)
-* [maven](https://maven.apache.org/) ![Installed](https://img.shields.io/badge/current\-v3.6.0-blue.svg)
-* [python](https://www.python.org/) ![Installed](https://img.shields.io/badge/current\-v3.6-blue.svg)
-* [pip](https://pip.pypa.io)
-* [pipenv](https://docs.pipenv.org/)
-* [docker](https://www.docker.com/)
-* [docker-compose](https://docs.docker.com/compose/) ![Installed](https://img.shields.io/badge/current\-v1.22.0-blue.svg) [![GitHub release](https://img.shields.io/github/release/docker/compose.svg?label=latest)](https://github.com/docker/compose/releases/latest)
-* [virtualbox](https://www.virtualbox.org/)
-* [vagrant](https://www.vagrantup.com/)
+* [go](https://golang.org/)
 
 ## Editors & IDEs
-* [Sublime Text 3](https://www.sublimetext.com/)
-* [IntelliJ IDEA](https://www.jetbrains.com/idea/) (Community 2019.2.2)
-* [PyCharm](https://www.jetbrains.com/pycharm/) (Community 2019.2.2)
-* [DBeaver](https://dbeaver.io/)
-* [MySQL Workbench](https://www.mysql.com/products/workbench/)
-* [Typora](https://typora.io/)
+* [neovim](https://neovim.io/)
+* [emacs](https://www.gnu.org/software/emacs/)
 
 ## Other utilities
-* [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
-* [Dropbox](https://www.dropbox.com/)
 * [Spotify](https://www.spotify.com)
 
 ## Custom configuration
 * Fonts
     * [powerline](https://github.com/powerline/powerline)
     * [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
-* zsh
+    * [nerd-fonts](https://www.nerdfonts.com/)
+* fish
     * Set as default shell
-    * [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) theme
+    * [Starship](https://starship.rs/) prompt
     * Add custom plugins:
-        * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+        * [fish-nvm](https://github.com/jorgebucaran/fish-nvm)
+        * [fisher](https://github.com/jorgebucaran/fisher)
+        * [fzf](https://github.com/jethrokuan/fzf)
+        * [z](https://github.com/jethrokuan/z)
     * Add autocompletion for:
-        * hub
-        * docker-compose
+        * nvm
         * kubectl
-* Symlinks
-    * oh-my-zsh custom theme
-    * .zshrc
-    * .gitconfig
-    * .aliases
-    * IntelliJ desktop file for launcher
-    * terminator custom config
-    * guake autostart
-    * Sublime Text 3 config
+* Dotfiles
+    * [yadm](https://yadm.io/)
+    * [dotfiles](https://github.com/syvanpera/dotfiles)
 
 # License
 [MIT License](LICENSE)

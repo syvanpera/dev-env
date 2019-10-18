@@ -4,11 +4,11 @@
    - include: apt.yml
    - include: yadm.yml
    # - include: emacs.yml
-   - include: users.yml
+   # - include: users.yml
+   - include: customization.yml
    # - include: deb-packages.yml
    # - include: targz-apps.yml
    # - include: binaries.yml
    # - include: docker.yml
    # - include: pip.yml
    # - include: sublime.yml
-   # - include: customization.yml
