@@ -5,4 +5,4 @@
   script: fonts.sh
 - name: Change login shell to fish
   become: yes
-  shell: "chsh -s $(which fish) {{ username }}"
+  shell: "usermod --shell $(which fish) {{ username }}"
