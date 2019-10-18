@@ -6,6 +6,7 @@ packages:
   - neovim
   - emacs-gtk
   - ripgrep
+  - yadm
 # debs:
 #  dbeaver:
 #   name: DBeaver
