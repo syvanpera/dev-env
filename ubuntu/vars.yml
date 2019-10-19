@@ -28,3 +28,4 @@ archived_binaries:
    target_dir: /usr/local/bin
    original: exa-linux-x86_64
    symlink: exa
+user_services: []

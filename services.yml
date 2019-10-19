@@ -1,5 +1,4 @@
 ---
-- include_vars: vars.yml
 - name: Enable systemd user services
   become: yes
   become_user: "{{ username }}"

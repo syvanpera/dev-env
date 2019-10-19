@@ -20,3 +20,6 @@ binaries:
     name: yadm
     url: https://github.com/TheLocehiliosan/yadm/raw/master/yadm
 archived_binaries: []
+user_services:
+  syncthing:
+    name: syncthing
