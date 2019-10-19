@@ -10,10 +10,16 @@ apt_packages:
   - curl
   - direnv
   - fzf
+  - gnome-tweaks
+  - lm-sensors
+  - tig
 snap_packages:
   go:
     name: go
     classic: yes
+  syncthing:
+    name: syncthing
+    classic: no
 binaries: []
 archived_binaries:
   exa:

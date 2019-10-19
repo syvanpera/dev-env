@@ -16,6 +16,7 @@ This is just for personal convenience. It's not intended to be highly configurab
 * [git](https://git-scm.com/)
 * [tmux](https://github.com/tmux/tmux/)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [tig](https://jonas.github.io/tig/)
 
 ## SDKs & Runtimes
 * [go](https://golang.org/)
@@ -23,6 +24,9 @@ This is just for personal convenience. It's not intended to be highly configurab
 ## Editors & IDEs
 * [neovim](https://neovim.io/)
 * [emacs](https://www.gnu.org/software/emacs/)
+
+## Other software
+* [syncthing](https://syncthing.net/)
 
 ## Custom configuration
 * Fonts
