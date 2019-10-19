@@ -11,9 +11,6 @@ wget -qO- https://raw.github.com/syvanpera/dev-env/master/bootstrap.sh | bash
 # Disclaimer
 This is just for personal convenience. It's not intended to be highly configurable and I'm most likely not following Ansible's conventions and best practices.
 
-# Content
-Note: if no version is specified it means the latest will be installed
-
 ## Essentials
 * [fish](https://fishshell.com/)
 * [git](https://git-scm.com/)
@@ -26,9 +23,6 @@ Note: if no version is specified it means the latest will be installed
 ## Editors & IDEs
 * [neovim](https://neovim.io/)
 * [emacs](https://www.gnu.org/software/emacs/)
-
-## Other utilities
-* [Spotify](https://www.spotify.com)
 
 ## Custom configuration
 * Fonts

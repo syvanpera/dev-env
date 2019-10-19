@@ -1,6 +1,11 @@
 ---
 - include_vars: vars.yml
 - include: yadm.yml
+- include: "{{ item }}"
+  with_first_found:
+    - files:
+      - "{{ distro }}/customizations.yml"
+      skip: true
 - name: Install custom fonts
   script: fonts.sh
 - name: Change login shell to fish

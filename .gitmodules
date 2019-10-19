@@ -1,0 +1,3 @@
+[submodule "vendor/gogh"]
+	path = vendor/gogh
+	url = https://github.com/Mayccoll/Gogh.git

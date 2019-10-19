@@ -1,3 +1,4 @@
+color_scheme: tomorrow-night
 packages:
   - fish
   - tmux
