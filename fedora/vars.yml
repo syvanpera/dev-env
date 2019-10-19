@@ -2,6 +2,7 @@ packages:
   - fish
   - tmux
   - neovim
+  - python3-neovim
   - emacs
   - ripgrep
   - curl
