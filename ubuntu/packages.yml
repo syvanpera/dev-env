@@ -25,8 +25,7 @@
 - name: Install snap packages
   become: yes
   snap:
-    state: latest
+    state: present
     classic: "{{ item.value.classic }}"
-    update_cache: true
     name: "{{ item.value.name }}"
   with_dict: "{{ snap_packages }}"
