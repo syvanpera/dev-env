@@ -10,6 +10,7 @@ packages:
   - fzf
   - exa
   - golang-bin
+  - tig
 binaries:
   direnv:
     name: direnv

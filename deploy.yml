@@ -1,12 +1,12 @@
 ---
 - hosts: localhost
   tasks:
-    # - include: "{{ distro }}/packages.yml"
-    # - include: binaries.yml
-    # - include: archived-binaries.yml
-    # - include: yadm.yml
-    # - include: golang.yml
-    # - include: rust.yml
-    # - include: cargo.yml
-    # - include: emacs.yml
+    - include: "{{ distro }}/packages.yml"
+    - include: binaries.yml
+    - include: archived-binaries.yml
+    - include: yadm.yml
+    - include: golang.yml
+    - include: rust.yml
+    - include: cargo.yml
+    - include: emacs.yml
     - include: customization.yml
