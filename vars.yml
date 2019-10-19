@@ -4,3 +4,6 @@ yadm_repo_url: https://github.com/syvanpera/dotfiles.git
 cargo_packages:
   starship:
     binary: starship
+user_services:
+  syncthing:
+    name: syncthing

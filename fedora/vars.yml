@@ -11,6 +11,7 @@ packages:
   - exa
   - golang-bin
   - tig
+  - syncthing
 binaries:
   direnv:
     name: direnv

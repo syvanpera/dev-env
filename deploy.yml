@@ -10,3 +10,4 @@
     - include: cargo.yml
     - include: emacs.yml
     - include: customization.yml
+    - include: services.yml

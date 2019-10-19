@@ -1,0 +1,11 @@
+---
+- include_vars: vars.yml
+- name: Enable systemd user services
+  become: yes
+  become_user: "{{ username }}"
+  systemd:
+    name: "{{ item.value.name }}"
+    scope: user
+    enabled: yes
+    state: started
+  with_dict: "{{ user_services }}"
