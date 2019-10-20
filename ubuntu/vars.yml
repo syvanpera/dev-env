@@ -13,6 +13,7 @@ apt_packages:
   - gnome-tweaks
   - lm-sensors
   - tig
+  - htop
 snap_packages:
   go:
     name: go
