@@ -32,7 +32,7 @@ archived_binaries:
    original: exa-linux-x86_64
    symlink: exa
 user_services: []
-keybindings:
+basic_keybindings:
   close: "['<Alt>q']"
   activate-window-menu: "['<Super>space']"
   toggle-maximized: "['<Super>f']"
@@ -45,3 +45,12 @@ keybindings:
   move-to-workspace-2: "['<Shift><Alt>quotedbl']"
   move-to-workspace-3: "['<Shift><Alt>numbersign']"
   move-to-workspace-4: "['<Shift><Alt>currency']"
+custom_keybindings:
+  custom0:
+    name: "'Launch Terminal'"
+    command: "'gnome-terminal --geometry 120x50'"
+    binding: "'<Alt>Return'"
+  custom1:
+    name: "'Launcher'"
+    command: "'rofi -show drun'"
+    binding: "'<Alt>Space'"

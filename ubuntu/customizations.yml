@@ -1,11 +1,39 @@
 ---
 - include_vars: ../vars.yml
 - include_vars: vars.yml
-- name: Set up Gnome keybindings
+- name: Set up basic Gnome keybindings
   become: yes
   become_user: "{{ username }}"
   dconf:
     key: "/org/gnome/desktop/wm/keybindings/{{ item.key }}"
     value: "{{ item.value | string }}"
     state: present
-  with_dict: "{{ keybindings }}"
+  with_dict: "{{ basic_keybindings }}"
+- name: Set up custom Gnome keybindings
+  become: yes
+  become_user: "{{ username }}"
+  block:
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+        value: "'Launch terminal'"
+        state: present
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+        value: "'<Alt>Return'"
+        state: present
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+        value: "'gnome-terminal --geometry 120x50'"
+        state: present
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name
+        value: "'Launcher'"
+        state: present
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding
+        value: "'<Alt>Space'"
+        state: present
+    - dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command
+        value: "'rofi -show drun'"
+        state: present
