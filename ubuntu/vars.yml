@@ -17,6 +17,7 @@ apt_packages:
   - rofi
   - python-psutil
   - mlocate
+  - chrome-gnome-shell
 snap_packages:
   go:
     name: go
