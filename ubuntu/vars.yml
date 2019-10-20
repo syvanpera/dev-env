@@ -32,3 +32,16 @@ archived_binaries:
    original: exa-linux-x86_64
    symlink: exa
 user_services: []
+keybindings:
+  close: "['<Alt>q']"
+  activate-window-menu: "['<Super>space']"
+  toggle-maximized: "['<Super>f']"
+  toggle-fullscreen: "['<Shift><Super>f']"
+  switch-to-workspace-1: "['<Alt>1']"
+  switch-to-workspace-2: "['<Alt>2']"
+  switch-to-workspace-3: "['<Alt>3']"
+  switch-to-workspace-4: "['<Alt>4']"
+  move-to-workspace-1: "['<Shift><Alt>exclam']"
+  move-to-workspace-2: "['<Shift><Alt>quotedbl']"
+  move-to-workspace-3: "['<Shift><Alt>numbersign']"
+  move-to-workspace-4: "['<Shift><Alt>currency']"
