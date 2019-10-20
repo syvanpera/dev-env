@@ -16,6 +16,7 @@ apt_packages:
   - htop
   - rofi
   - python-psutil
+  - mlocate
 snap_packages:
   go:
     name: go
