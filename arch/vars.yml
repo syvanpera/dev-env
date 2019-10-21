@@ -11,8 +11,10 @@ packages:
   - rofi
   - syncthing
   - go
+  - exa
 aur_packages:
   - yadm
+  - direnv
 binaries: []
 archived_binaries: []
 user_services: []
