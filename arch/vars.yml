@@ -3,6 +3,7 @@ packages:
   - fish
   - tmux
   - neovim
+  - python-pynvim
   - emacs
   - ripgrep
   - curl
@@ -12,6 +13,7 @@ packages:
   - syncthing
   - go
   - exa
+  - xclip
 aur_packages:
   - yadm
   - direnv
