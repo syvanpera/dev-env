@@ -16,10 +16,15 @@ OS=""
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
-    echo "Distribution identified as $NAME"
+    echo "Distribution identified as $NAME ('$ID' with '$ID_LIKE' base)"
 fi
 
-if [[ ! " ${DISTROS[@]} " =~ " ${ID} " ]] || [[ " ${DISTROS[@]} " =~ " ${ID_LIKE} " ]]; then
+DISTRO=""
+if [[ " ${DISTROS[@]} " =~ " ${ID} " ]]; then
+  DISTRO=$ID
+elif [[ " ${DISTROS[@]} " =~ " ${ID_LIKE} " ]]; then
+  DISTRO=$ID_LIKE
+else
   echo "Unsupported distribution"
   echo "Currently only following distros are supported: ${DISTROS[@]}"
   exit 1
@@ -41,4 +46,4 @@ git fetch
 git reset --hard origin/${BRANCH}
 
 # Run Ansible playbook
-ansible-playbook deploy.yml -i hosts -vv --extra-vars "distro=$ID"
+ansible-playbook deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
