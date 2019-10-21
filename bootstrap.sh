@@ -37,13 +37,13 @@ if [ ! -d ".dev-env" ]; then
   git clone --recursive https://github.com/syvanpera/dev-env.git .dev-env
 fi
 
-source $DISTRO/bootstrap.sh
-
 # Checkout specified branch
 cd .dev-env
 git checkout ${BRANCH}
 git fetch
 git reset --hard origin/${BRANCH}
+
+source $DISTRO/bootstrap.sh
 
 # Run Ansible playbook
 ansible-playbook deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
