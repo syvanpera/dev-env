@@ -37,7 +37,7 @@ if [ ! -d ".dev-env" ]; then
   git clone --recursive https://github.com/syvanpera/dev-env.git .dev-env
 fi
 
-source $ID/bootstrap.sh
+source $DISTRO/bootstrap.sh
 
 # Checkout specified branch
 cd .dev-env
