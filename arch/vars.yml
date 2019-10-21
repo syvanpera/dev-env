@@ -10,6 +10,7 @@ packages:
   - htop
   - rofi
   - syncthing
+  - go
 aur_packages:
   - yadm
 binaries: []
