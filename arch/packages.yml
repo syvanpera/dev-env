@@ -1,6 +1,17 @@
 ---
 - include_vars: ../vars.yml
 - include_vars: vars.yml
+- name: Setup user for AUR builds
+  become: yes
+  block:
+    - user:
+      name: aur_builder
+      group: wheel
+    - lineinfile:
+      path: /etc/sudoers.d/11-install-aur_builder
+      line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+      create: yes
+      validate: 'visudo -cf %s'
 - name: Install packages
   become: yes
   pacman:
