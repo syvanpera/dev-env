@@ -18,13 +18,11 @@ apt_packages:
   - python-psutil
   - mlocate
   - chrome-gnome-shell
+  - syncthing
 snap_packages:
   go:
     name: go
     classic: yes
-  syncthing:
-    name: syncthing
-    classic: no
 binaries: []
 archived_binaries:
   exa:
@@ -33,7 +31,9 @@ archived_binaries:
    target_dir: /usr/local/bin
    original: exa-linux-x86_64
    symlink: exa
-user_services: []
+user_services:
+  syncthing:
+    name: syncthing
 basic_keybindings:
   close: "['<Alt>q']"
   activate-window-menu: "['<Super>space']"
