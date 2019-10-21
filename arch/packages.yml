@@ -27,4 +27,4 @@
 - name: Install AUR packages
   become: yes
   become_user: aur_builder
-  aur: name={{ packages }} use=yay skip_installed=true
+  aur: name={{ aur_packages }} use=yay skip_installed=true
