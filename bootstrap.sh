@@ -19,7 +19,7 @@ if [ -f /etc/os-release ]; then
     echo "Distribution identified as $NAME"
 fi
 
-if [[ ! " ${DISTROS[@]} " =~ " ${ID} " ]]; then
+if [[ ! " ${DISTROS[@]} " =~ " ${ID} " ]] || [[ " ${DISTROS[@]} " =~ " ${ID_LIKE} " ]]; then
   echo "Unsupported distribution"
   echo "Currently only following distros are supported: ${DISTROS[@]}"
   exit 1
