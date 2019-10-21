@@ -1,4 +1,8 @@
-repositories: []
+repositories:
+  sbt:
+    repository: deb http://ppa.launchpad.net/kgilmer/regolith-unstable/ubuntu eoan main
+    keyserver: hkp://keyserver.ubuntu.com:80
+    key: BDA0E4BA891B327BB00DF1E076458020C35556DC
 apt_packages:
   - gcc
   - fish
@@ -18,13 +22,12 @@ apt_packages:
   - python-psutil
   - mlocate
   - chrome-gnome-shell
+  - syncthing
+  - regolith-desktop
 snap_packages:
   go:
     name: go
     classic: yes
-  syncthing:
-    name: syncthing
-    classic: no
 binaries: []
 archived_binaries:
   exa:
@@ -33,7 +36,9 @@ archived_binaries:
    target_dir: /usr/local/bin
    original: exa-linux-x86_64
    symlink: exa
-user_services: []
+user_services:
+  syncthing:
+    name: syncthing
 basic_keybindings:
   close: "['<Alt>q']"
   activate-window-menu: "['<Super>space']"
