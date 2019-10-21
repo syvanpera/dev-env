@@ -1,0 +1,16 @@
+repositories: []
+packages:
+  - fish
+  - tmux
+  - neovim
+  - emacs
+  - ripgrep
+  - curl
+  - tig
+  - htop
+  - rofi
+  - syncthing
+aur_packages: []
+binaries: []
+archived_binaries: []
+user_services: []
