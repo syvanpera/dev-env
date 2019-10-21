@@ -7,4 +7,6 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S ansible --noconfirm --needed
 
 # Install AUR module for Ansible
-git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+if [ ! -d "$HOME/.ansible/plugins/modules/aur" ] ; then
+  git clone https://github.com/kewlfft/ansible-aur.git $HOME/.ansible/plugins/modules/aur
+fi
