@@ -10,7 +10,8 @@ packages:
   - htop
   - rofi
   - syncthing
-aur_packages: []
+aur_packages:
+  - yadm
 binaries: []
 archived_binaries: []
 user_services: []
