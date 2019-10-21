@@ -4,4 +4,4 @@
 sudo pacman -Syu --noconfirm
 
 # Install Ansible
-sudo pacman -S ansible --noconfirm
+sudo pacman -S ansible --noconfirm --needed
