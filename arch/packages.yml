@@ -20,3 +20,7 @@
     state: latest
     update_cache: yes
     name: "{{ packages }}"
+- name: Install AUR helper
+  become: yes
+  become_user: aur_builder
+  aur: name=yay use=makepkg skip_installed=true
