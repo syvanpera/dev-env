@@ -2,7 +2,7 @@
 set -e
 
 BRANCH="master"
-DISTROS=(arch fedora ubuntu)
+DISTROS=(arch fedora ubuntu kubuntu)
 
 DIR=$(dirname $0)
 

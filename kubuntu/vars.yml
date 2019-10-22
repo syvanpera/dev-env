@@ -1,0 +1,36 @@
+repositories: []
+apt_packages:
+  - gcc
+  - fish
+  - tmux
+  - neovim
+  # - emacs-gtk
+  - ripgrep
+  - yadm
+  - curl
+  - direnv
+  - fzf
+  # - gnome-tweaks
+  - lm-sensors
+  - tig
+  - htop
+  # - rofi
+  # - python-psutil
+  - mlocate
+  # - chrome-gnome-shell
+  - syncthing
+snap_packages:
+  go:
+    name: go
+    classic: yes
+binaries: []
+archived_binaries:
+  exa:
+   name: exa
+   url: https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
+   target_dir: /usr/local/bin
+   original: exa-linux-x86_64
+   symlink: exa
+user_services:
+  syncthing:
+    name: syncthing
