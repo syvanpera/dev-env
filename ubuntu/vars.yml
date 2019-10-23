@@ -20,6 +20,7 @@ apt_packages:
   - htop
   - rofi
   - python-psutil
+  - python-gobject
   - mlocate
   - chrome-gnome-shell
   - syncthing
