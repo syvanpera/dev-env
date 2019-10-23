@@ -19,6 +19,8 @@ apt_packages:
   - mlocate
   - chrome-gnome-shell
   - syncthing
+  - xcape
+  - ranger
 snap_packages:
   go:
     name: go
