@@ -3,6 +3,10 @@ repositories:
     repository: deb http://ppa.launchpad.net/kgilmer/regolith-unstable/ubuntu eoan main
     keyserver: hkp://keyserver.ubuntu.com:80
     key: BDA0E4BA891B327BB00DF1E076458020C35556DC
+  system76:
+    repository: deb  http://ppa.launchpad.net/system76/pop/ubuntu eoan main
+    keyserver: hkp://keyserver.ubuntu.com:80
+    key: E6AC16572ED1AD6F96C7EBE01E5F8BBC5BEB10AE
 apt_packages:
   - gcc
   - fish
@@ -12,6 +16,7 @@ apt_packages:
   - ripgrep
   - yadm
   - curl
+  - gawk
   - direnv
   - fzf
   - gnome-tweaks
@@ -27,6 +32,7 @@ apt_packages:
   - xcape
   - ranger
   - regolith-desktop
+  - pop-theme
 snap_packages:
   go:
     name: go
