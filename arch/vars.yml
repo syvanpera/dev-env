@@ -14,6 +14,7 @@ packages:
   - go
   - exa
   - xclip
+  - hugo
 aur_packages:
   - yadm
   - direnv
