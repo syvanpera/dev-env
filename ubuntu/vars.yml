@@ -33,6 +33,7 @@ apt_packages:
   - ranger
   - regolith-desktop
   - pop-theme
+  - neofetch
 snap_packages:
   go:
     name: go
