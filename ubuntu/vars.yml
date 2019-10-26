@@ -7,6 +7,10 @@ repositories:
     repository: deb  http://ppa.launchpad.net/system76/pop/ubuntu eoan main
     keyserver: hkp://keyserver.ubuntu.com:80
     key: E6AC16572ED1AD6F96C7EBE01E5F8BBC5BEB10AE
+  projectatomic:
+    repository: deb  http://ppa.launchpad.net/system76/pop/ubuntu eoan main
+    keyserver: hkp://keyserver.ubuntu.com:80
+    key: 018BA5AD9DF57A4448F0E6CF8BECF1637AD8C79D
 apt_packages:
   - gcc
   - fish
@@ -35,9 +39,18 @@ apt_packages:
   - pop-theme
   - neofetch
   - newsboat
+  - neomutt
+  - notmuch
+  - isync
+  - msmtp
+  - pass
+  - uidmap
 snap_packages:
   go:
     name: go
+    classic: yes
+  kubectl:
+    name: kubectl
     classic: yes
 binaries: []
 archived_binaries:
