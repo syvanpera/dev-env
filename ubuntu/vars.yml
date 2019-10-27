@@ -46,6 +46,7 @@ apt_packages:
   - msmtp
   - pass
   - uidmap
+  - feh
 snap_packages:
   go:
     name: go
