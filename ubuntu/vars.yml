@@ -20,6 +20,7 @@ apt_packages:
   - ripgrep
   - yadm
   - curl
+  - python-pip
   - gawk
   - direnv
   - fzf
@@ -49,6 +50,8 @@ snap_packages:
   go:
     name: go
     classic: yes
+  hugo:
+    name: hugo
   kubectl:
     name: kubectl
     classic: yes
