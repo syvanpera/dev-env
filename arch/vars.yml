@@ -1,5 +1,6 @@
 repositories: []
 packages:
+  - base-devel
   - fish
   - tmux
   - neovim
@@ -15,6 +16,7 @@ packages:
   - exa
   - xclip
   - hugo
+  - gcolor3
 aur_packages:
   - yadm
   - direnv

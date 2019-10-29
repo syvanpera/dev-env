@@ -7,6 +7,8 @@
       - "{{ distro }}/customizations.yml"
       skip: true
 - name: Install custom fonts
+  become: yes
+  become_user: "{{ username }}"
   script: fonts.sh
 - name: Change login shell to fish
   become: yes

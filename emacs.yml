@@ -1,4 +1,6 @@
 - name: Check out Doom Emacs
+  become: yes
+  become_user: "{{ username }}"
   git:
     repo: 'https://github.com/hlissner/doom-emacs.git'
     dest: '{{ home }}/.emacs.d'
