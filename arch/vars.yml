@@ -17,6 +17,7 @@ packages:
   - xclip
   - hugo
   - gcolor3
+  - pass
 aur_packages:
   - yadm
   - direnv
