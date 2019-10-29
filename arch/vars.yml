@@ -18,9 +18,16 @@ packages:
   - hugo
   - gcolor3
   - pass
+  - k9s
+  - kubectl
+  - kubectx
+  - podman
+  - podman-docker
+  - i3-gaps
 aur_packages:
   - yadm
   - direnv
+  - rofi-calc
 binaries: []
 archived_binaries: []
 user_services: []
