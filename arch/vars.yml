@@ -13,6 +13,8 @@ packages:
   - tig
   - htop
   - rofi
+  - ranger
+  - zathura
   - syncthing
   - go
   - exa
@@ -29,13 +31,20 @@ packages:
   - polybar
   - quilt
   - unclutter
+  - compton
+  - compton-conf
+  - neomutt
+  - newsboat
+  - xcape
+  - xorg-xprop
+  - feh
 aur_packages:
   - yadm
   - direnv
   - rofi-calc
   - clipster
-  - pop-gtk-theme-git
-  - pop-icon-theme-git
+  - i3-gnome-flashback
+  - python-i3ipc
 binaries: []
 archived_binaries: []
 user_services: []
