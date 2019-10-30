@@ -2,7 +2,9 @@ repositories: []
 packages:
   - base-devel
   - fish
+  - termite
   - tmux
+  - tmuxp
   - neovim
   - python-pynvim
   - emacs
@@ -24,10 +26,16 @@ packages:
   - podman
   - podman-docker
   - i3-gaps
+  - polybar
+  - quilt
+  - unclutter
 aur_packages:
   - yadm
   - direnv
   - rofi-calc
+  - clipster
+  - pop-gtk-theme-git
+  - pop-icon-theme-git
 binaries: []
 archived_binaries: []
 user_services: []

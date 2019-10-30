@@ -46,4 +46,4 @@ git reset --hard origin/${BRANCH}
 source $DISTRO/bootstrap.sh
 
 # Run Ansible playbook
-ansible-playbook deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
+ansible-playbook -K deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
