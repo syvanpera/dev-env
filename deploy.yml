@@ -1,5 +1,8 @@
 ---
-- hosts: localhost
+- name: Bootstrap my development machine
+  hosts: 127.0.0.1
+  connection: local
+
   tasks:
     - include: "{{ distro }}/packages.yml"
     - include: binaries.yml

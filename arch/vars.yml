@@ -15,6 +15,7 @@ packages:
   - rofi
   - ranger
   - zathura
+  - zathura-pdf-mupdf
   - syncthing
   - go
   - exa
@@ -28,23 +29,27 @@ packages:
   - podman
   - podman-docker
   - i3-gaps
-  - polybar
   - quilt
   - unclutter
-  - compton
-  - compton-conf
   - neomutt
+  - abook
   - newsboat
   - xcape
   - xorg-xprop
   - feh
+  - xsel
+  - neofetch
+  - notmuch
+  - isync
+  - msmtp
+  - elixir
 aur_packages:
   - yadm
   - direnv
   - rofi-calc
   - clipster
-  - i3-gnome-flashback
   - python-i3ipc
+  - mu
 binaries: []
 archived_binaries: []
 user_services: []

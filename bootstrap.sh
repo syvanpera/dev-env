@@ -2,7 +2,7 @@
 set -e
 
 BRANCH="master"
-DISTROS=(arch fedora ubuntu)
+DISTROS=(arch)
 
 DIR=$(dirname $0)
 
@@ -39,9 +39,9 @@ fi
 
 # Checkout specified branch
 cd .dev-env
-git checkout ${BRANCH}
-git fetch
-git reset --hard origin/${BRANCH}
+#git checkout ${BRANCH}
+#git fetch
+#git reset --hard origin/${BRANCH}
 
 source $DISTRO/bootstrap.sh
 

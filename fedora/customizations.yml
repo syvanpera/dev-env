@@ -1,9 +1,0 @@
----
-- include_vars: ../vars.yml
-- include_vars: vars.yml
-- name: Install Gnome Terminal color scheme
-  become: yes
-  become_user: "{{ username }}"
-  script: "{{ home }}/.dev-env/vendor/gogh/themes/{{ color_scheme }}.sh"
-  environment:
-    TERMINAL: gnome-terminal
