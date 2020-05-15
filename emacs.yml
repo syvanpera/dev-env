@@ -6,6 +6,12 @@
     dest: '{{ home }}/.emacs.d'
     depth: 1
     version: develop
+- name: Check out my custom configuration for Doom Emacs
+  become: yes
+  become_user: "{{ username }}"
+  git:
+    repo: 'https://github.com/syvanpera/doom-emacs-config'
+    dest: '{{ home }}/.doom.d'
 - name: Run Doom Emacs installer
   become: yes
   become_user: "{{ username }}"
