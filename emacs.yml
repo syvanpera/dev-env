@@ -4,6 +4,7 @@
   git:
     repo: 'https://github.com/hlissner/doom-emacs.git'
     dest: '{{ home }}/.emacs.d'
+    depth: 1
     version: develop
 - name: Run Doom Emacs installer
   become: yes

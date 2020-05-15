@@ -11,7 +11,7 @@
     - include: golang.yml
     - include: rust.yml
     - include: cargo.yml
-#    - include: emacs.yml
+    - include: emacs.yml
     - include: dotfiles.yml
     - include: customization.yml
 #    - include: services.yml
