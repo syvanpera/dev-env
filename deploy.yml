@@ -6,7 +6,7 @@
   tasks:
     - include: "{{ distro }}/packages.yml"
     - include: binaries.yml
-    - include: archived-binaries.yml
+    - include: additional-installs.yml
     - include: dotfiles.yml
     - include: golang.yml
     - include: rust.yml
