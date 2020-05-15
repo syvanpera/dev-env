@@ -29,10 +29,14 @@ packages:
   - i3-gaps
   - arandr
   - qutebrowser
+  - brightnessctl
+  - terminus-font
+  - sxiv
 aur_packages:
   - direnv
   - yadm-git
   - emacs27-git
+  - polybar
 binaries: []
 archived_binaries: []
 user_services: []
