@@ -4,3 +4,5 @@ yadm_repo_url: https://github.com/syvanpera/dotfiles.git
 cargo_packages:
   starship:
     binary: starship
+python_packages:
+  - ueberzug

@@ -8,6 +8,7 @@
     - include: binaries.yml
     - include: additional-installs.yml
     - include: dotfiles.yml
+    - include: python.yml
     - include: golang.yml
     - include: rust.yml
     - include: cargo.yml

@@ -1,0 +1,4 @@
+- include_vars: vars.yml
+- name: Install Python libraries and apps
+  become: yes
+  pip: name="{{ python_packages | join(' ') }}"

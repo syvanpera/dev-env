@@ -32,6 +32,8 @@ packages:
   - brightnessctl
   - terminus-font
   - sxiv
+  - python-pip
+  - vifm
 aur_packages:
   - direnv
   - yadm-git
