@@ -7,10 +7,11 @@
     - include: "{{ distro }}/packages.yml"
     - include: binaries.yml
     - include: archived-binaries.yml
-    - include: yadm.yml
+    - include: dotfiles.yml
     - include: golang.yml
     - include: rust.yml
     - include: cargo.yml
-    - include: emacs.yml
+#    - include: emacs.yml
+    - include: dotfiles.yml
     - include: customization.yml
-    - include: services.yml
+#    - include: services.yml

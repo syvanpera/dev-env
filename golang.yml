@@ -1,9 +1,10 @@
 - include_vars: vars.yml
-- name: Install Go tooling
+- name: Install Go tooling and apps
   become: yes
   become_user: "{{ username }}"
   command: go get {{ item }}
   with_items:
-   - golang.org/x/tools/cmd/goimports
-   - golang.org/x/lint/golint
-   - github.com/rogpeppe/godef
+   - github.com/gopasspw/gopass
+   # - golang.org/x/tools/cmd/goimports
+   # - golang.org/x/lint/golint
+   # - github.com/rogpeppe/godef

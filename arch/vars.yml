@@ -2,54 +2,37 @@ repositories: []
 packages:
   - base-devel
   - fish
-  - termite
+  - alacritty
   - tmux
   - tmuxp
   - neovim
   - python-pynvim
-  - emacs
   - ripgrep
   - curl
   - tig
   - htop
-  - rofi
   - ranger
   - zathura
   - zathura-pdf-mupdf
-  - syncthing
-  - go
   - exa
   - xclip
-  - hugo
-  - gcolor3
   - pass
-  - k9s
-  - kubectl
-  - kubectx
-  - podman
-  - podman-docker
-  - i3-gaps
-  - quilt
-  - unclutter
-  - neomutt
-  - abook
-  - newsboat
-  - xcape
-  - xorg-xprop
-  - feh
-  - xsel
-  - neofetch
-  - notmuch
-  - isync
-  - msmtp
-  - elixir
-aur_packages:
-  - yadm
-  - direnv
+  - rofi
   - rofi-calc
-  - clipster
-  - python-i3ipc
-  - mu
+  - npm
+  - xcape
+  - unzip
+  - fzf
+  - go
+  - newsboat
+  - neomutt
+  - i3-gaps
+  - arandr
+  - qutebrowser
+aur_packages:
+  - direnv
+  - yadm-git
+  - emacs27-git
 binaries: []
 archived_binaries: []
 user_services: []

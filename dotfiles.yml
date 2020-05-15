@@ -1,7 +1,7 @@
 - include_vars: vars.yml
 - name: Check for existing yadm repo
   stat:
-    path: "{{ home }}/.yadm/repo.git"
+    path: "{{ home }}/.config/yadm/repo.git"
   register: yadm_details
 - name: Initialize dotfiles with yadm
   become: yes
