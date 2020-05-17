@@ -34,11 +34,19 @@ packages:
   - sxiv
   - python-pip
   - vifm
+  - abook
+  - gcolor3
+  - hugo
+  - w3m
+  - msmtp
+  - cmake
 aur_packages:
   - direnv
   - yadm-git
   - emacs27-git
   - polybar
+  - mutt-wizard-git
+  - mu
 binaries: []
 archived_binaries: []
 user_services: []
