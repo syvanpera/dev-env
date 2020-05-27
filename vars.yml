@@ -6,3 +6,5 @@ cargo_packages:
     binary: starship
 python_packages:
   - ueberzug
+  - virtualfish
+  - pynvim

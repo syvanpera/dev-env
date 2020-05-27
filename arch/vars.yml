@@ -40,6 +40,10 @@ packages:
   - w3m
   - msmtp
   - cmake
+  - unclutter
+  - docker
+  - docker-compose
+  - autorandr
 aur_packages:
   - direnv
   - yadm-git
