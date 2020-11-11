@@ -42,6 +42,7 @@ packages:
   - docker
   - docker-compose
   - autorandr
+  - gopass
   - emacs
 aur_packages:
   - direnv

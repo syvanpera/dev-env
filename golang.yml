@@ -4,7 +4,6 @@
   become_user: "{{ username }}"
   command: go get -u {{ item }}
   with_items:
-   - github.com/gopasspw/gopass
    - github.com/motemen/gore/cmd/gore
    - github.com/stamblerre/gocode
    - golang.org/x/tools/cmd/godoc
