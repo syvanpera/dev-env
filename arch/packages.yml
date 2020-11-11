@@ -23,8 +23,8 @@
 - name: Install AUR helper
   become: yes
   become_user: aur_builder
-  aur: name=yay use=makepkg skip_installed=true
+  aur: name=yay use=makepkg state=present
 - name: Install AUR packages
   become: yes
   become_user: aur_builder
-  aur: name={{ aur_packages }} use=yay skip_installed=true
+  aur: name={{ aur_packages }} use=yay state=present
