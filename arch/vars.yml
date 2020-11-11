@@ -50,6 +50,8 @@ aur_packages:
   - polybar
   - mutt-wizard-git
   - mu
+  - dunst
+  - clipster
 binaries: []
 archived_binaries: []
 user_services: []
