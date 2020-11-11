@@ -16,7 +16,6 @@ packages:
   - zathura-pdf-mupdf
   - exa
   - xclip
-  - pass
   - rofi
   - rofi-calc
   - npm
@@ -33,7 +32,6 @@ packages:
   - terminus-font
   - sxiv
   - python-pip
-  - vifm
   - abook
   - gcolor3
   - hugo
@@ -44,10 +42,10 @@ packages:
   - docker
   - docker-compose
   - autorandr
+  - emacs
 aur_packages:
   - direnv
   - yadm-git
-  - emacs27-git
   - polybar
   - mutt-wizard-git
   - mu
