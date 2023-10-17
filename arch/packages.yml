@@ -16,15 +16,15 @@
         validate: 'visudo -cf %s'
 - name: Install packages
   become: yes
-  pacman:
+  community.general.pacman:
     state: latest
     update_cache: yes
     name: "{{ packages }}"
 - name: Install AUR helper
   become: yes
   become_user: aur_builder
-  aur: name=yay use=makepkg state=present
+  aur: name=paru use=makepkg state=present
 - name: Install AUR packages
   become: yes
   become_user: aur_builder
-  aur: name={{ aur_packages }} use=yay state=present
+  aur: name={{ aur_packages }} use=paru state=present

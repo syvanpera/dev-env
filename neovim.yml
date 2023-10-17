@@ -1,0 +1,11 @@
+- name: Check out AstroNvim
+  become: yes
+  become_user: "{{ username }}"
+  git:
+    repo: 'https://github.com/AstroNvim/AstroNvim'
+    dest: '{{ home }}/.config/nvim'
+    depth: 1
+#- name: Run AstroNvim initialization
+#  become: yes
+#  become_user: "{{ username }}"
+#  command: "nvim --headless +q"

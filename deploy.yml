@@ -4,15 +4,20 @@
   connection: local
 
   tasks:
-    - include: "{{ distro }}/packages.yml"
-    - include: binaries.yml
-    - include: additional-installs.yml
-    - include: dotfiles.yml
+    - include_tasks: "{{ distro }}/packages.yml"
+    - include_tasks: customizations.yml
+    - include_tasks: gnome-customizations.yml
+    - include_tasks: services.yml
+    - include_tasks: neovim.yml
+    - include_tasks: emacs.yml
+#    - include: binaries.yml
+#    - include: additional-installs.yml
+#    - include: dotfiles.yml
 #   - include: python.yml
-    - include: golang.yml
-    - include: rust.yml
-    - include: cargo.yml
-    - include: emacs.yml
-    - include: dotfiles.yml
-    - include: customization.yml
+#    - include: golang.yml
+#    - include: rust.yml
+#    - include: cargo.yml
+#    - include: emacs.yml
+#    - include: dotfiles.yml
+#    - include_tasks: customization.yml
 #    - include: services.yml

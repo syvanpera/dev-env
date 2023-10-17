@@ -11,5 +11,9 @@ wget -qO- https://raw.github.com/syvanpera/dev-env/master/bootstrap.sh | bash
 # Disclaimer
 This is just for personal convenience. It's not intended to be highly configurable and I'm most likely not following Ansible's conventions and best practices.
 
+# TODO
+- Put the dotfiles in place using chezmoi
+- Finalize Emacs & Neovim setups
+
 # License
 [MIT License](LICENSE)

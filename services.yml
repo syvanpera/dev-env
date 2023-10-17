@@ -1,4 +1,12 @@
 ---
+- name: Enable systemd services
+  become: yes
+  systemd:
+    name: "{{ item.value.name }}"
+    enabled: yes
+    state: started
+  with_dict: "{{ services }}"
+
 - name: Enable systemd user services
   become: yes
   become_user: "{{ username }}"

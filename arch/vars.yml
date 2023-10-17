@@ -3,55 +3,54 @@ packages:
   - base-devel
   - fish
   - alacritty
+  - kitty
   - tmux
-  - tmuxp
   - neovim
-  - python-pynvim
+  - emacs-wayland
   - ripgrep
   - curl
   - tig
   - htop
-  - ranger
-  - zathura
-  - zathura-pdf-mupdf
-  - exa
-  - xclip
-  - rofi
-  - rofi-calc
-  - npm
-  - xcape
-  - unzip
+  - eza
+  - procs
+  - fd
+  - bat
+  - starship
+  - zoxide
   - fzf
-  - go
-  - newsboat
-  - neomutt
-  - i3-gaps
-  - arandr
-  - qutebrowser
-  - brightnessctl
-  - terminus-font
-  - sxiv
-  - python-pip
-  - abook
-  - gcolor3
-  - hugo
-  - w3m
-  - msmtp
-  - cmake
-  - unclutter
-  - docker
-  - docker-compose
-  - autorandr
-  - gopass
-  - emacs
+  - interception-caps2esc
+  - libgda6
+  - chezmoi
+  - lazygit
+  - obsidian
+  - ttf-jetbrains-mono-nerd
+  - ttf-font-awesome
+  - ttf-fira-sans
+  - ttf-fira-code
+  - ttf-firacode-nerd
+  - ttf-inconsolata-go-nerd
+  - ffmpegthumbnailer
+  - unarchiver
+  - jq
+  - poppler
+  - viu
+  - glow
+  - obs-studio
+  - v4l2loopback-dkms
+  - gimp
+  - hx
+  - dog
+  - duf
+  - rbw
 aur_packages:
-  - direnv
-  - yadm-git
-  - polybar
-  - mutt-wizard-git
-  - mu
-  - dunst
-  - clipster
+  - extension-manager
+  - slack-desktop
+  - logseq-desktop-bin
+  - yazi-bin
+  - gitmux
 binaries: []
 archived_binaries: []
+services:
+  udevmon:
+    name: udevmon
 user_services: []

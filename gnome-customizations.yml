@@ -1,0 +1,131 @@
+---
+- name: Gnome preferences
+  block:
+    - name: Enable fractional scaling
+      community.general.dconf:
+        key: /org/gnome/mutter/experimental-features
+        value: "['scale-monitor-framebuffer']" 
+    - name: Fixed number of workspaces
+      community.general.dconf:
+        key: /org/gnome/mutter/dynamic-workspaces
+        value: "false"
+    - name: Mouse button modifier
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/preferences/mouse-button-modifier
+        value: "'<Alt>'"
+    - name: Set longer screen blanking delay
+      community.general.dconf:
+        key: /org/gnome/desktop/session/idle-delay
+        value: 1800
+
+- name: Gnome keyboard shortcuts
+  block:
+    - name: Close window
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/close
+        value: "['<Alt>q']"
+    - name: Toggle maximized
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/toggle-maximized
+        value: "['<Super>f']"
+    - name: Switch to workspace 1
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-1
+        value: "['<Alt>1']"
+    - name: Switch to workspace 2
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-2
+        value: "['<Alt>2']"
+    - name: Switch to workspace 3
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-3
+        value: "['<Alt>3']"
+    - name: Switch to workspace 4
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-4
+        value: "['<Alt>4']"
+    - name: Move window to workspace 1
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-workspace-1
+        value: "['<Shift><Alt>1']"
+    - name: Move window to workspace 2
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-workspace-2
+        value: "['<Shift><Alt>2']"
+    - name: Move window to workspace 3
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-workspace-3
+        value: "['<Shift><Alt>3']"
+    - name: Move window to workspace 4
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-workspace-4
+        value: "['<Shift><Alt>4']"
+    - name: Move window monitor up
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-monitor-up
+        value: "['<Shift><Super>k']"
+    - name: Move window monitor down
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-monitor-down
+        value: "['<Shift><Super>j']"
+    - name: Move window monitor left
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-monitor-left
+        value: "['<Shift><Super>h']"
+    - name: Move window monitor right
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/move-to-monitor-right
+        value: "['<Shift><Super>l']"
+    - name: Take screenshot
+      community.general.dconf:
+        key: /org/gnome/shell/keybindings/screenshot
+        value: "['<Shift><Super>s']"
+
+- name: Custom Gnome keyboard shortcuts
+  block:
+    - name: Enable custom keybindings
+      community.general.dconf:
+        key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+        value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
+
+    - block:
+      - name: Launch terminal
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+          value: "'Launch terminal'"
+      - name: Shortcut binding
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+          value: "'<Alt>Return'"
+      - name: Shortcut command
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+          value: "'tmux'"
+
+    - block:
+      - name: Launch terminal with tmux shortcut
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name
+          value: "'Launch terminal with tmux'"
+      - name: Shortcut binding
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding
+          value: "'<Shift><Alt>Return'"
+      - name: Shortcut command
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command
+          value: "tmux -e tmux new-session -A -s 'default'"
+
+    - block:
+      - name: Launch Emacs
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name
+          value: "'Launch emacs'"
+      - name: Shortcut binding
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding
+          value: "'<Super>e'"
+      - name: Shortcut command
+        community.general.dconf:
+          key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command
+          value: "'emacs'"

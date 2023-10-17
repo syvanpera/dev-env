@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-BRANCH="master"
+BRANCH="main"
 DISTROS=(arch)
 
 DIR=$(dirname $0)
@@ -46,4 +46,4 @@ cd .dev-env
 source $DISTRO/bootstrap.sh
 
 # Run Ansible playbook
-ansible-playbook -K deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
+#ansible-playbook -K deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
