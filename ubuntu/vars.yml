@@ -1,0 +1,19 @@
+repositories: []
+packages:
+  - build-essential
+  - cmake
+  - ripgrep
+  - curl
+  - fish
+  - tmux
+  - fzf
+  - zoxide
+  - kitty
+  - fonts-material-design-icons-iconfont
+  - htop
+binaries: []
+archived_binaries: []
+services:
+  udevmon:
+    name: udevmon
+user_services: []
