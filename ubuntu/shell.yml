@@ -27,6 +27,7 @@
       blockinfile:
         path: "{{ user.home }}/.zshrc"
         block: |
+          alias vi="nvim"
           eval "$(starship init zsh)"
           source <(fzf --zsh)
 

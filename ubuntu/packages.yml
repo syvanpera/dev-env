@@ -7,3 +7,15 @@
 - name: Install Starship
   shell: curl https://starship.rs/install.sh -sSf | sh -s -- -y
 
+- block:
+    - name: Fetch latest fzf release info
+      uri: url="https://api.github.com/repos/junegunn/fzf/releases/latest" return_content=yes
+      register: fzf_release_json
+
+    - name: Extract latest fzf release tarball
+      unarchive:
+        src: "{{ fzf_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'linux_amd64')].browser_download_url | [0]\") }}"
+        dest: /usr/local/bin
+        remote_src: yes
+
+
