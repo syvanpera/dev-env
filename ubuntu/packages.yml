@@ -1,4 +1,3 @@
-- include_vars: config.yml
 - name: Add apt keys
   become: yes
   apt_key: keyserver={{ item.value.keyserver }} id={{ item.value.key }}

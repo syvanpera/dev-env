@@ -1,7 +1,0 @@
-repositories: []
-snap_packages: []
-apt_packages:
-  - gcc
-  - neovim
-  - stow
-  - tmux
