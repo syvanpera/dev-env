@@ -2,9 +2,9 @@
 set -e
 
 BRANCH="main"
-DISTROS=(arch)
+DISTROS=(ubuntu)
 
-DIR=$(dirname $0)
+DIR=$(dirname "$0")
 
 if [ ! "$HOME" == "$PWD" ]; then
   echo "This script is intended to be run from the user's home path: $HOME"
@@ -14,19 +14,18 @@ fi
 OS=""
 
 if [ -f /etc/os-release ]; then
-    # freedesktop.org and systemd
-    . /etc/os-release
-    echo "Distribution identified as $NAME ('$ID' with '$ID_LIKE' base)"
+  . /etc/os-release
+  echo "Distribution identified as $NAME ('$ID' with '$ID_LIKE' base)"
 fi
 
 DISTRO=""
-if [[ " ${DISTROS[@]} " =~ " ${ID} " ]]; then
+if [[ " ${DISTROS[*]} " =~ " ${ID} " ]]; then
   DISTRO=$ID
-elif [[ " ${DISTROS[@]} " =~ " ${ID_LIKE} " ]]; then
+elif [[ " ${DISTROS[*]} " =~ " ${ID_LIKE} " ]]; then
   DISTRO=$ID_LIKE
 else
   echo "Unsupported distribution"
-  echo "Currently only following distros are supported: ${DISTROS[@]}"
+  echo "Currently only following distros are supported: ${DISTROS[*]}"
   exit 1
 fi
 
@@ -43,7 +42,7 @@ cd .dev-env
 #git fetch
 #git reset --hard origin/${BRANCH}
 
-source $DISTRO/bootstrap.sh
+source "$DISTRO/bootstrap.sh"
 
 # Run Ansible playbook
 #ansible-playbook -K deploy.yml -i hosts -vv --extra-vars "distro=$DISTRO"
