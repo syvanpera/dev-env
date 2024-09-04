@@ -1,6 +1,10 @@
 username: tuomo
 home: /home/{{ username }}
 dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
+folders:
+  home:
+    - .config
+
 cargo_packages:
   starship:
     binary: starship
