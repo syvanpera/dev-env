@@ -14,8 +14,8 @@ packages:
   - tmux
   - unzip
 
-cargo_packages:
-  - starship
+cargo_packages: []
+  # - starship
 
 ohmyzsh:
   plugins:
