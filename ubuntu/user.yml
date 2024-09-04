@@ -3,9 +3,11 @@
 - user:
     name: "{{ username }}"
     state: present
-  register: user_registered
+  register: user
 - name: Create home folders
+  become: yes
+  become_user: "{{ user.name }}"
   file:
-    path: "{{ user_registered.home }}/{{ item }}"
+    path: "{{ user.home }}/{{ item }}"
     state: directory
   loop: "{{ folders.home }}"

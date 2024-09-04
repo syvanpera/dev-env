@@ -7,20 +7,20 @@
     - name: Clone dotfiles repo
       git:
         repo: "{{ dotfiles_repo_url }}"
-        dest: "{{ user_registered.home }}/.dotfiles"
+        dest: "{{ user.home }}/.dotfiles"
         clone: true
         depth: 1
         version: "main"
       # when: not dotfiles_details.stat.exists
     # - name: Create .config directory
     #   file:
-    #     path: "{{ user_registered.home }}/.config"
+    #     path: "{{ user.home }}/.config"
     #     state: directory
     - name: Run stow
-      shell: "stow . --dir {{ user_registered.home }}/.dotfiles --target {{ user_registered.home }} --verbose=2"
+      shell: "stow . --dir {{ user.home }}/.dotfiles --target {{ user.home }} --verbose=2"
       register: result
-      changed_when: 'result.stderr is search("LINK: ")'
+      changed_when: '"LINK" in result.stderr'
     - name: Initialize & install Neovim plugins
       shell: "nvim --headless \"+Lazy! sync\" +qa"
   become: yes
-  become_user: "{{ user_registered.name }}"
+  become_user: "{{ user.name }}"
