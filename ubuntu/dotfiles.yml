@@ -1,19 +1,21 @@
-- include_vars: ../vars.yml
+# - include_vars: ../vars.yml
 # - name: Check for existing dotfiles repo
 #   stat:
 #     path: "{{ home }}/.dotfiles"
 #   register: dotfiles_details
 - name: Clone dotfiles repo
   become: yes
-  become_user: "{{ username }}"
+  become_user: "{{ user_registered.name }}"
   git:
     repo: "{{ dotfiles_repo_url }}"
-    dest: "{{ ansible_env.HOME }}/.dotfiles"
+    dest: "{{ user_registered.home }}/.dotfiles"
     clone: true
     depth: 1
     version: "main"
   # when: not dotfiles_details.stat.exists
 - name: Run stow
-  shell: "stow . --target {{ ansible_env.HOME }} --verbose=2"
+  become: yes
+  become_user: "{{ user_registered.name }}"
+  shell: "stow . --target {{ user_registered.home }} --verbose=2"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'

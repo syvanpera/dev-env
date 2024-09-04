@@ -1,0 +1,5 @@
+---
+- include_vars: ../vars.yml
+- user: {{ username }}
+  state: present
+  register: user_registered
