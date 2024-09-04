@@ -1,0 +1,15 @@
+- include_vars: ../vars.yml
+# - name: Check for existing dotfiles repo
+#   stat:
+#     path: "{{ home }}/.dotfiles"
+#   register: dotfiles_details
+- name: Clone dotfiles repo
+  become: yes
+  become_user: "{{ username }}"
+  git:
+    repo: "{{ dotfiles_repo_url }}"
+    dest: "{{ home }}/.dotfiles"
+    clone: true
+    depth: 1
+    version: "main"
+  when: not dotfiles_details.stat.exists
