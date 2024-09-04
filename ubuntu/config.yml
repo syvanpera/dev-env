@@ -14,9 +14,12 @@ packages:
   - tmux
   - unzip
 
-oh-my-zsh:
+ohmyzsh:
   plugins:
-    - { name: "zsh-autosuggestions", repo: "https://github.com/zsh-users/zsh-autosuggestions" }
-    - { name: "zsh-syntax-highlighting", repo: "https://github.com/zsh-users/zsh-syntax-highlighting" }
+    - name: "zsh-autosuggestions"
+      repo: "https://github.com/zsh-users/zsh-autosuggestions"
+    - name: "zsh-syntax-highlighting"
+      repo: "https://github.com/zsh-users/zsh-syntax-highlighting"
   themes:
-    - { name: "powerlevel10k", repo: "https://github.com/romkatv/powerlevel10k" }
+    - name: "powerlevel10k"
+      repo: "https://github.com/romkatv/powerlevel10k"

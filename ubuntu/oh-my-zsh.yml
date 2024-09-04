@@ -14,14 +14,14 @@
         repo: "{{ item.value.repo }}"
         dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.value.name }}"
         depth: 1
-      with_dict:  "{{ oh-my-zsh.plugins }}"
+      with_dict:  "{{ ohmyzsh.plugins }}"
 
     - name: Install Oh My Zsh themes
       git:
         repo: "{{ item.value.repo }}"
         dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.value.name }}"
         depth: 1
-      with_dict:  "{{ oh-my-zsh.themes }}"
+      with_dict:  "{{ ohmyzsh.themes }}"
 
   become: yes
   become_user: "{{ user.name }}"
