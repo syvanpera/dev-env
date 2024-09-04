@@ -5,6 +5,7 @@ folders:
     - .config
 
 packages:
+  - fzf
   - gcc
   - golang
   - neovim

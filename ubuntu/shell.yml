@@ -23,5 +23,12 @@
         depth: 1
       loop: "{{ ohmyzsh.themes }}"
 
+    - name: Add custom configs to .zshrc
+      blockinfile:
+        path: "{{ user.home }}/.zshrc"
+        block: |
+          eval "$(starship init zsh)"
+          source <(fzf --zsh)
+
   become: yes
   become_user: "{{ user.name }}"
