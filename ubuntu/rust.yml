@@ -1,16 +1,24 @@
 - block:
-    - name: Install Rust toolchain with rustup
-      shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
-      args:
-        warn: no
-    - name: Check if Rust packages already exists
-      stat:
-        path: "{{ user.home }}/.cargo/bin/{{ item.value.binary }}"
-      with_dict:  "{{ cargo_packages }}"
-      register: check_cargo_status
-    - name: Install Rust packages with Cargo
-      command: "{{ user.home }}/.cargo/bin/cargo install {{ item.item.key }}"
-      with_items: "{{ check_cargo_status.results }}"
-      when: not item.stat.exists or item.item.value.force_reinstall|default (false)
-  become: yes
+    - name: Check if cargo is installed
+      shell: command -v cargo
+      register: cargo_exists
+      ignore_errors: yes
+    - name: Download rustup installer
+      when: cargo_exists is failed
+      get_url:
+        url: https://sh.rustup.rs
+        dest: /tmp/sh.rustup.rs
+        mode: '0755'
+        force: 'yes'
+      tags:
+        - rust
+    - name: Install rust toolchain with rustup
+      when: cargo_exists is failed
+      shell: /tmp/sh.rustup.rs -y
+      tags:
+        - rust
+    - name: Install rust packages with cargo
+      community.general.cargo:
+        name: "{{ cargo_packages }}"
   become_user: "{{ user.name }}"
+  become: yes

@@ -15,8 +15,7 @@ packages:
   - unzip
 
 cargo_packages:
-  starship:
-    binary: starship
+  - starship
 
 ohmyzsh:
   plugins:
