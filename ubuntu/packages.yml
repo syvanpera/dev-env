@@ -1,30 +1,31 @@
 ---
 - include_vars: ../vars.yml
 - include_vars: vars.yml
-- name: Setup user for AUR builds
+- name: Add apt keys
   become: yes
-  block:
-    - name: Create user 'aur_builder'
-      user:
-        name: aur_builder
-        group: wheel
-    - name: Add sudo rule for 'aur_builder'
-      lineinfile:
-        path: /etc/sudoers.d/11-install-aur_builder
-        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
-        create: yes
-        validate: 'visudo -cf %s'
-- name: Install packages
+  apt_key: keyserver={{ item.value.keyserver }} id={{ item.value.key }}
+  with_dict: "{{ repositories }}"
+  when: item.value.key is defined
+- name: Add apt signing keys
   become: yes
-  community.general.pacman:
+  apt_key: url={{ item.value.key_url }} state=present
+  with_dict: "{{ repositories }}"
+  when: item.value.key_url is defined
+- name: Add apt repositories
+  become: yes
+  apt_repository: repo={{ item.value.repository }}
+  with_dict: "{{ repositories }}"
+- name: Install apt packages
+  become: yes
+  apt:
     state: latest
+    force_apt_get: yes
     update_cache: yes
-    name: "{{ packages }}"
-- name: Install AUR helper
+    name: "{{ apt_packages }}"
+- name: Install snap packages
   become: yes
-  become_user: aur_builder
-  aur: name=paru use=makepkg state=present
-- name: Install AUR packages
-  become: yes
-  become_user: aur_builder
-  aur: name={{ aur_packages }} use=paru state=present
+  snap:
+    state: present
+    classic: "{{ item.value.classic }}"
+    name: "{{ item.value.name }}"
+  with_dict: "{{ snap_packages }}"
