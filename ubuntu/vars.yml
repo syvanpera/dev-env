@@ -1,2 +1,4 @@
+repositories: []
+snap_packages: []
 apt_packages:
   - tmux
