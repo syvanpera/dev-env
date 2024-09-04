@@ -6,7 +6,10 @@ folders:
 
 packages:
   - gcc
+  - golang
   - neovim
   - nodejs
+  - npm
   - stow
   - tmux
+  - unzip

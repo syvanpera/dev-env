@@ -13,6 +13,7 @@
   become: yes
   apt_repository: repo={{ item.value.repository }}
   with_dict: "{{ repositories }}"
+  when: item.value.key_url is defined
 - name: Install packages
   become: yes
   apt:
