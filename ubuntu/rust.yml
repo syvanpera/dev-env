@@ -8,6 +8,7 @@
       when: not cargo_status.stat.exists
       shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
     - name: Install rust packages with cargo
+      when: cargo_packages is defined and (cargo_packages | length > 0)
       community.general.cargo:
         executable: "{{ user.home }}/.cargo/bin/cargo"
         name: "{{ cargo_packages }}"

@@ -1,5 +1,11 @@
 - block:
+    - name: Check if dotfiles are already checked out
+      stat:
+        path: "{{ user.home }}/.dotfiles"
+      register: dotfiles_status
+      ignore_errors: yes
     - name: Clone dotfiles repo
+      when: not dotfiles_status.stat.exists
       git:
         repo: "{{ dotfiles_repo_url }}"
         dest: "{{ user.home }}/.dotfiles"
