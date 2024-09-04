@@ -1,5 +1,4 @@
----
-- include_vars: ../vars.yml
+- include_vars: config.yml
 - user:
     name: "{{ username }}"
     state: present

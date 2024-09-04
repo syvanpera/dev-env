@@ -1,0 +1,11 @@
+username: tuomo
+dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
+folders:
+  home:
+    - .config
+
+packages:
+  - gcc
+  - neovim
+  - stow
+  - tmux
