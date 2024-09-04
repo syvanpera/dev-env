@@ -20,5 +20,7 @@
       shell: "stow . --dir {{ user_registered.home }}/.dotfiles --target {{ user_registered.home }} --verbose=2"
       register: result
       changed_when: 'result.stderr is search("LINK: ")'
+    - name: Initialize & install Neovim plugins
+      shell: "nvim --headless \"+Lazy! sync\" +qa"
   become: yes
   become_user: "{{ user_registered.name }}"
