@@ -1,5 +1,6 @@
 ---
 - include_vars: ../vars.yml
-- user: {{ username }}
+- user:
+  name: "{{ username }}"
   state: present
   register: user_registered
