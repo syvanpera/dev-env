@@ -11,17 +11,17 @@
 
     - name: Install Oh My Zsh plugins
       git:
-        repo: "{{ item.value.repo }}"
-        dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.value.name }}"
+        repo: "{{ item.repo }}"
+        dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
         depth: 1
-      with_dict:  "{{ ohmyzsh.plugins }}"
+      loop: "{{ ohmyzsh.plugins }}"
 
     - name: Install Oh My Zsh themes
       git:
-        repo: "{{ item.value.repo }}"
-        dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.value.name }}"
+        repo: "{{ item.repo }}"
+        dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.name }}"
         depth: 1
-      with_dict:  "{{ ohmyzsh.themes }}"
+      loop: "{{ ohmyzsh.themes }}"
 
   become: yes
   become_user: "{{ user.name }}"
