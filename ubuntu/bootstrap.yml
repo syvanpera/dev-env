@@ -6,3 +6,4 @@
 - include_tasks: "dotfiles.yml"
 - include_tasks: "shell.yml"
 - include_tasks: "nix.yml"
+- include_tasks: "devbox.yml"
