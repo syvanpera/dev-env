@@ -34,6 +34,7 @@
           alias ls="eza --group --color=always --group-directories-first --time-style=long-iso --icons"
           eval "$(starship init zsh)"
           eval "$(zoxide init zsh)"
+          eval "$(atuin init zsh)
           source <(fzf --zsh)
 
     - name: Ensure Tmux Plugin directory exists
@@ -57,6 +58,17 @@
       when: not zoxide_status.stat.exists
       shell: |
         curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+    - name: Check if atuin is installed
+      stat:
+        path: "{{ user.home }}/.atuin/bin/atuin"
+      register: atuin_status
+      ignore_errors: yes
+
+    - name: Install atuin
+      when: not atuin_status.stat.exists
+      shell: |
+        curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
   become: yes
   become_user: "{{ user.name }}"
