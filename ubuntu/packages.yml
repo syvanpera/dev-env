@@ -4,7 +4,14 @@
     state: present
     name: "{{ packages }}"
 
-- name: Install Starship
+- name: Check if starship is installed
+  stat:
+    path: "/usr/local/bin/starship"
+  register: starship_status
+  ignore_errors: yes
+
+- name: Install starship
+  when: not starship_status.stat.exists
   shell: curl https://starship.rs/install.sh -sSf | sh -s -- -y
 
 - block:
