@@ -16,7 +16,7 @@ packages:
   - unzip
 
 cargo_packages: []
-  # - starship
+  - atuin
 
 ohmyzsh:
   plugins:
