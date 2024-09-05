@@ -47,7 +47,14 @@
         dest: "{{ user.home }}/.tmux/plugins/tpm"
         depth: 1
 
+    - name: Check if zoxide is installed
+      stat:
+        path: "{{ user.home }}/.local/bin/zoxide"
+      register: zoxide_status
+      ignore_errors: yes
+
     - name: Install zoxide
+      when: not zoxide_status.stat.exists
       shell: |
         curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
