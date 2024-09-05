@@ -34,5 +34,17 @@
           eval "$(starship init zsh)"
           source <(fzf --zsh)
 
+    - name: Ensure Tmux Plugin directory exists
+      file:
+        path: "{{ user.home }}/.tmux/plugins"
+        state: directory
+
+    - name: Install Tmux Plugin Manager
+      git:
+        repo: "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+        dest: "{{ user.home }}/.tmux/plugins/tpm"
+        depth: 1
+
+
   become: yes
   become_user: "{{ user.name }}"
