@@ -5,6 +5,7 @@ folders:
     - .config
 
 packages:
+  - eza
   - gcc
   - golang
   - neovim

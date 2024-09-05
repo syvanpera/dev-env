@@ -28,6 +28,9 @@
         path: "{{ user.home }}/.zshrc"
         block: |
           alias vi="nvim"
+          alias l="eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+          alias ll="eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git"
+          alias ls="eza --group --color=always --group-directories-first --time-style=long-iso --icons"
           eval "$(starship init zsh)"
           source <(fzf --zsh)
 

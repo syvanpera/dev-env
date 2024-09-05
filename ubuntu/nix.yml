@@ -1,0 +1,8 @@
+- name: Check if nix is installed
+  stat:
+    path: "/nix/var/nix/profiles/default/bin/nix"
+  register: nix_status
+  ignore_errors: yes
+- name: Install nix using determinate systems installer
+  when: not nix_status.stat.exists
+  shell: curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install -no-confirm
