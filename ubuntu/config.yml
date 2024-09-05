@@ -20,6 +20,8 @@ cargo_packages:
     binary: yazi
   - name: yazi-cli
     binary: yazi
+  - name: procs
+    binary: procs
 
 ohmyzsh:
   plugins:
