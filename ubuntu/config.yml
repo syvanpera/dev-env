@@ -15,8 +15,9 @@ packages:
   - tmux
   - unzip
 
-cargo_packages: []
-  # - atuin
+cargo_packages:
+  - yazi-fm
+  - yazi-cli
 
 ohmyzsh:
   plugins:
