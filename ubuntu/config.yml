@@ -22,6 +22,8 @@ cargo_packages:
     binary: yazi
   - name: procs
     binary: procs
+  - name: fd-find
+    binary: fd
 
 ohmyzsh:
   plugins:
