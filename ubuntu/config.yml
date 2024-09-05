@@ -16,8 +16,10 @@ packages:
   - unzip
 
 cargo_packages:
-  - yazi-fm
-  - yazi-cli
+  - name: yazi-fm
+    binary: yazi
+  - name: yazi-cli
+    binary: yazi
 
 ohmyzsh:
   plugins:
