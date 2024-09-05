@@ -1,0 +1,11 @@
+- name: Check if devbox is installed
+  stat:
+    path: "/usr/local/bin/devbox"
+  register: devbox_status
+  ignore_errors: yes
+- name: Install devbox
+  when: not devbox_status.stat.exists
+  become: yes
+  become_user: "{{ user.name }}"
+  shell: |
+    curl -fsSL https://get.jetify.com/devbox | bash -s -- -f
