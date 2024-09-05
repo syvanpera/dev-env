@@ -33,6 +33,7 @@
           alias ll="eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git"
           alias ls="eza --group --color=always --group-directories-first --time-style=long-iso --icons"
           eval "$(starship init zsh)"
+          eval "$(zoxide init zsh)"
           source <(fzf --zsh)
 
     - name: Ensure Tmux Plugin directory exists
@@ -46,6 +47,9 @@
         dest: "{{ user.home }}/.tmux/plugins/tpm"
         depth: 1
 
+    - name: Install zoxide
+      shell: |
+        curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
   become: yes
   become_user: "{{ user.name }}"
