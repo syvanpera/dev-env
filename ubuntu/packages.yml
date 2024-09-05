@@ -25,4 +25,13 @@
         dest: /usr/local/bin
         remote_src: yes
 
+- block:
+    - name: Fetch latest lazygit release info
+      uri: url="https://api.github.com/repos/jesseduffield/lazygit/releases/latest" return_content=yes
+      register: lazygit_release_json
 
+    - name: Extract latest lazygitfzf release tarball
+      unarchive:
+        src: "{{ lazygit_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'Linux_x86_64')].browser_download_url | [0]\") }}"
+        dest: /usr/local/bin
+        remote_src: yes
