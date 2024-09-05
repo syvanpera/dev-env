@@ -15,7 +15,7 @@ packages:
   - tmux
   - unzip
 
-cargo_packages: []
+cargo_packages:
   - atuin
 
 ohmyzsh:
