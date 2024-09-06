@@ -10,10 +10,10 @@
   shell: pipx install {{ item }}
   loop: "{{ python_packages }}"
 
-- name: Install rust packages
-  community.general.cargo:
-    executable: "{{ user.home }}/.cargo/bin/cargo"
-    name: "{{ rust_packages }}"
+# - name: Install rust packages
+#   community.general.cargo:
+#     executable: "{{ user.home }}/.cargo/bin/cargo"
+#     name: "{{ rust_packages }}"
 
 - name: Check if starship is installed
   stat:
