@@ -3,6 +3,7 @@ dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
 folders:
   home:
     - .config
+    - .local/bin
 
 shell:
   aliases:
