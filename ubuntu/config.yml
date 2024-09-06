@@ -12,6 +12,10 @@ shell:
     ll: eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git
     ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
 
+apt_repositories:
+  neovim:
+    repository: ppa:neovim-ppa/stable
+
 packages:
   - eza
   - gcc
