@@ -18,5 +18,12 @@
       changed_when: '"LINK" in result.stderr'
     - name: Initialize & install Neovim plugins
       shell: "nvim --headless \"+Lazy! sync\" +qa"
+    - name: Add custom configs to .gitconfig
+      blockinfile:
+        path: "{{ user.home }}/.gitconfig"
+        block: |
+          [includeIf "gitdir:~/project"]
+            path = .gitconfig-asteroid
+
   become: yes
   become_user: "{{ user.name }}"
