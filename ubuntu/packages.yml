@@ -1,8 +1,19 @@
-- name: Install packages
+- name: Install system packages
   become: yes
   package:
     state: present
     name: "{{ packages }}"
+
+- name: Install python packages
+  become: yes
+  become_user: "{{ user.name }}"
+  shell: pipx install {{ item }}
+  loop: "{{ python_packages }}"
+
+- name: Install rust packages
+  community.general.cargo:
+    executable: "{{ user.home }}/.cargo/bin/cargo"
+    name: "{{ rust_packages }}"
 
 - name: Check if starship is installed
   stat:

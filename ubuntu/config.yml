@@ -18,11 +18,15 @@ packages:
   - neovim
   - nodejs
   - npm
+  - pipx
   - stow
   - tmux
   - unzip
 
-cargo_packages:
+python_packages:
+  - black
+
+rust_packages:
   - name: yazi-fm
     binary: yazi
   - name: yazi-cli
