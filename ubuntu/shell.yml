@@ -1,27 +1,43 @@
 - block:
-    - name: Download Oh My Zsh installation script
-      get_url:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        dest: /tmp/install_ohmyzsh.sh
+    - name: Check if Oh My Posh is installed
+      stat:
+        path: "{{ user.home }}/.local/bin/oh-my-posh"
+      register: ohmyposh_status
+      ignore_errors: yes
 
-    - name: Run Oh My Zsh installation script
-      command: sh /tmp/install_ohmyzsh.sh --unattended
-      register: ohmyzsh_result
-      failed_when: "'FAILED' in ohmyzsh_result.stderr"
+    - name: Install Oh My Posh
+      when: not ohmyposh_status.stat.exists
+      shell: curl -s https://ohmyposh.dev/install.sh | bash -s
 
-    - name: Install Oh My Zsh plugins
-      git:
-        repo: "{{ item.repo }}"
-        dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
-        depth: 1
-      loop: "{{ ohmyzsh.plugins }}"
-
-    - name: Install Oh My Zsh themes
-      git:
-        repo: "{{ item.repo }}"
-        dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.name }}"
-        depth: 1
-      loop: "{{ ohmyzsh.themes }}"
+    # - name: Download Oh My Zsh installation script
+    #   get_url:
+    #     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    #     dest: /tmp/install_ohmyzsh.sh
+    #
+    # - name: Run Oh My Zsh installation script
+    #   command: sh /tmp/install_ohmyzsh.sh --unattended
+    #   register: ohmyzsh_result
+    #   failed_when: "'FAILED' in ohmyzsh_result.stderr"
+    #
+    # - name: Install Oh My Zsh plugins
+    #   git:
+    #     repo: "{{ item.repo }}"
+    #     dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
+    #     depth: 1
+    #   loop: "{{ ohmyzsh.plugins }}"
+    #
+    # - name: Install Oh My Zsh themes
+    #   git:
+    #     repo: "{{ item.repo }}"
+    #     dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.name }}"
+    #     depth: 1
+    #   loop: "{{ ohmyzsh.themes }}"
+    #
+    # - name: Activate Oh My Zsh plugins
+    #   lineinfile:
+    #     path: "{{ user.home }}/.zshrc"
+    #     regexp: '^plugins=\(.*\)'
+    #     line: plugins=(git {{ ohmyzsh.plugins | map(attribute='name') | join(' ') }})
 
     - name: Add custom configs to .zshrc
       blockinfile:
@@ -32,11 +48,11 @@
           source "$HOME/.atuin/bin/env"
           source <(fzf --zsh)
 
-          alias vi="nvim"
-          alias l="eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-          alias ll="eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git"
-          alias ls="eza --group --color=always --group-directories-first --time-style=long-iso --icons"
+          {% for alias, command in shell.aliases.items() %}
+          alias {{ alias }}="{{ command }}"
+          {% endfor %}
 
+          eval "$(oh-my-posh init zsh)"
           eval "$(starship init zsh)"
           eval "$(zoxide init zsh)"
           eval "$(atuin init zsh)"

@@ -4,6 +4,13 @@ folders:
   home:
     - .config
 
+shell:
+  aliases:
+    vi: nvim
+    l:  eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions
+    ll: eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git
+    ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
+
 packages:
   - eza
   - gcc
