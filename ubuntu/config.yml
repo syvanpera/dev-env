@@ -13,8 +13,7 @@ shell:
     ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
 
 apt_repositories:
-  neovim:
-    repository: ppa:neovim-ppa/stable
+  - ppa:neovim-ppa/stable
 
 packages:
   - eza
