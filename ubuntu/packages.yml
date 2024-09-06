@@ -2,7 +2,6 @@
   become: yes
   apt_repository:
     repo: "{{ item }}"
-    state: present
   loop: "{{ apt_repositories }}"
 
 - name: Install system packages
