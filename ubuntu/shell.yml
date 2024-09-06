@@ -5,39 +5,39 @@
       register: ohmyposh_status
       ignore_errors: yes
 
-    - name: Install Oh My Posh
-      when: not ohmyposh_status.stat.exists
-      shell: curl -s https://ohmyposh.dev/install.sh | bash -s
+    # - name: Install Oh My Posh
+    #   when: not ohmyposh_status.stat.exists
+    #   shell: curl -s https://ohmyposh.dev/install.sh | bash -s
 
-    # - name: Download Oh My Zsh installation script
-    #   get_url:
-    #     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    #     dest: /tmp/install_ohmyzsh.sh
-    #
-    # - name: Run Oh My Zsh installation script
-    #   command: sh /tmp/install_ohmyzsh.sh --unattended
-    #   register: ohmyzsh_result
-    #   failed_when: "'FAILED' in ohmyzsh_result.stderr"
-    #
-    # - name: Install Oh My Zsh plugins
-    #   git:
-    #     repo: "{{ item.repo }}"
-    #     dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
-    #     depth: 1
-    #   loop: "{{ ohmyzsh.plugins }}"
-    #
-    # - name: Install Oh My Zsh themes
-    #   git:
-    #     repo: "{{ item.repo }}"
-    #     dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.name }}"
-    #     depth: 1
-    #   loop: "{{ ohmyzsh.themes }}"
-    #
-    # - name: Activate Oh My Zsh plugins
-    #   lineinfile:
-    #     path: "{{ user.home }}/.zshrc"
-    #     regexp: '^plugins=\(.*\)'
-    #     line: plugins=(git {{ ohmyzsh.plugins | map(attribute='name') | join(' ') }})
+    - name: Download Oh My Zsh installation script
+      get_url:
+        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+        dest: /tmp/install_ohmyzsh.sh
+
+    - name: Run Oh My Zsh installation script
+      command: sh /tmp/install_ohmyzsh.sh --unattended
+      register: ohmyzsh_result
+      failed_when: "'FAILED' in ohmyzsh_result.stderr"
+
+    - name: Install Oh My Zsh plugins
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ user.home }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
+        depth: 1
+      loop: "{{ ohmyzsh.plugins }}"
+
+    - name: Install Oh My Zsh themes
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ user.home }}/.oh-my-zsh/custom/themes/{{ item.name }}"
+        depth: 1
+      loop: "{{ ohmyzsh.themes }}"
+
+    - name: Activate Oh My Zsh plugins
+      lineinfile:
+        path: "{{ user.home }}/.zshrc"
+        regexp: '^plugins=\(.*\)'
+        line: plugins=(git {{ ohmyzsh.plugins | map(attribute='name') | join(' ') }})
 
     - name: Add custom configs to .zshrc
       blockinfile:
@@ -52,10 +52,10 @@
           alias {{ alias }}="{{ command }}"
           {% endfor %}
 
-          eval "$(oh-my-posh init zsh)"
+          # eval "$(oh-my-posh init zsh)"
           eval "$(starship init zsh)"
           eval "$(zoxide init zsh)"
-          eval "$(atuin init zsh)"
+          eval "$(atuin init zsh --disable-up-arrow)"
 
     - name: Ensure Tmux Plugin directory exists
       file:
