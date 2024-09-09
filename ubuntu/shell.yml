@@ -43,14 +43,14 @@
       blockinfile:
         path: "{{ user.home }}/.zshrc"
         block: |
-          export PATH=$HOME/.local/bin:$PATH
+          export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH
 
           # source "$HOME/.atuin/bin/env"
 
           eval "$(fzf --zsh)"
           # eval "$(oh-my-posh init zsh)"
           eval "$(starship init zsh)"
-          eval "$(zoxide init zsh)"
+          eval "$(zoxide init zsh --cmd cd)"
           # eval "$(atuin init zsh --disable-up-arrow)"
 
     - name: Ensure Tmux Plugin directory exists
