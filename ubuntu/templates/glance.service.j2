@@ -2,8 +2,6 @@
 Description=Glance
 
 [Service]
-User={{ user.name }}
-Group={{ user.group }}
 ExecStart=/usr/local/bin/glance --config {{ user.home }}/.config/glance/glance.yml
 
 [Install]
