@@ -67,7 +67,7 @@
     - name: Create systemd unit file for glance
       become: yes
       become_user: "{{ user.name }}"
-      template: src=glance.service.j2 dest={{ user.home }}/.config/systemd/glance.service mode=644
+      template: src=glance.service.j2 dest={{ user.home }}/.config/systemd/user/glance.service mode=644
 
     - name: Start glance
       become: yes
@@ -75,4 +75,5 @@
       systemd_service:
         name: glance
         state: started
+        daemon_reload: true
         scope: user
