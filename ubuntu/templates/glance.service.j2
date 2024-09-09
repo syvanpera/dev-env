@@ -1,0 +1,10 @@
+[Unit]
+Description=Glance
+
+[Service]
+User={{user}}
+Group={{group}}
+ExecStart=/usr/local/bin/glance --config $HOME/.config/glance/glance.yml
+
+[Install]
+WantedBy=multi-user.target

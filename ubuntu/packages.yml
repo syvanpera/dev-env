@@ -63,3 +63,14 @@
         src: "{{ glance_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'linux-amd64')].browser_download_url | [0]\") }}"
         dest: /usr/local/bin
         remote_src: yes
+
+    - name: Create systemd unit file for glance
+      template: src=glance.service.j2 dest={{ user.home }}/.config/systemd/glance.service mode=644
+      notify:
+        - reload systemctl
+
+    - name: Start glance
+      systemd_service:
+        name: glance
+        state: started
+        scope: user
