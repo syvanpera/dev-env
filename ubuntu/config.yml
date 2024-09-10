@@ -22,7 +22,6 @@ packages:
   - eza
   - gcc
   - golang
-  - gopass
   - neovim
   - nodejs
   - npm
