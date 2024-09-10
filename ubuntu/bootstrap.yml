@@ -7,3 +7,4 @@
 - include_tasks: "shell.yml"
 - include_tasks: "nix.yml"
 - include_tasks: "devbox.yml"
+- include_tasks: "project.yml"
