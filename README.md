@@ -9,7 +9,7 @@ wget -qO- https://raw.github.com/syvanpera/dev-env/master/bootstrap.sh | bash
 ```
 or
 ```shell
-ansible-playbook -K bootstrap.yml
+ansible-playbook -K bootstrap.yml --extra-vars "project=xxxx"
 ```
 
 # Disclaimer

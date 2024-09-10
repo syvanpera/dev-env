@@ -66,6 +66,18 @@
         remote_src: yes
 
 - block:
+    - name: Fetch latest gopass release info
+      uri: url="https://api.github.com/repos/gopasspw/gopass/releases/latest" return_content=yes
+      register: gopass_release_json
+
+    - name: Extract latest gopass release tarball
+      unarchive:
+        src: "{{ gopass_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'linux-amd64')].browser_download_url | [0]\") }}"
+        dest: /usr/local/bin
+        include: gopass
+        remote_src: yes
+
+- block:
     - name: Fetch latest glance release info
       uri: url="https://api.github.com/repos/glanceapp/glance/releases/latest" return_content=yes
       register: glance_release_json
