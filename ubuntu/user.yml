@@ -10,11 +10,3 @@
     path: "{{ user.home }}/{{ item }}"
     state: directory
   loop: "{{ folders.home }}"
-
-- name: Create project directory symlink
-  become: yes
-  become_user: "{{ user.name }}"
-  file:
-    src: "/data/projects/{{ project }}"
-    dest: "{{ user.home }}/project"
-    state: link
