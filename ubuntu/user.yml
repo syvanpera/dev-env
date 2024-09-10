@@ -2,6 +2,7 @@
     name: "{{ username }}"
     state: present
   register: user
+
 - name: Create home folders
   become: yes
   become_user: "{{ user.name }}"
@@ -9,6 +10,7 @@
     path: "{{ user.home }}/{{ item }}"
     state: directory
   loop: "{{ folders.home }}"
+
 - name: Create project directory symlink
   become: yes
   become_user: "{{ user.name }}"

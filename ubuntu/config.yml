@@ -22,6 +22,7 @@ packages:
   - eza
   - gcc
   - golang
+  - gopass
   - neovim
   - nodejs
   - npm
@@ -31,6 +32,7 @@ packages:
   - tig
   - tmux
   - unzip
+  - zsh
 
 python_packages:
   - black
