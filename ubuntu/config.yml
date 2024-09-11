@@ -45,7 +45,7 @@ rust_packages:
     binary: procs
   - name: fd-find
     binary: fd
-  - name: delta
+  - name: git-delta
     binary: delta
 
 ohmyzsh:
