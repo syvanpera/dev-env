@@ -31,12 +31,12 @@ packages:
   - stow
   - tig
   - tmux
-  - tmuxp
   - unzip
   - zsh
 
 python_packages:
   - black
+  - tmuxp
 
 rust_packages:
   - name: yazi-fm
