@@ -23,9 +23,11 @@ packages:
   - eza
   - gcc
   - golang
+  - jq
   - neovim
   - nodejs
   - npm
+  - pass
   - pipx
   - ripgrep
   - stow
