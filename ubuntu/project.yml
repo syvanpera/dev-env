@@ -11,9 +11,9 @@
     path: "{{ user.home }}/project/.gopass/store"
   register: store_details
 
-- name: Initialize password store
-  become: yes
-  become_user: "{{ user.name }}"
-  # shell: env PASSWORD_STORE_DIR={{ user.home}}/project/.gopass/store gopass --yes setup --alias helen --create --name "Tuomo Syvänperä" --email "tuomo.syvanpera@asteroid.fi"
-  shell: gopass --yes setup --alias helen --create --name "Tuomo Syvänperä" --email "tuomo.syvanpera@asteroid.fi"
-  when: not store_details.stat.exists
+# - name: Initialize password store
+#   become: yes
+#   become_user: "{{ user.name }}"
+#   # shell: env PASSWORD_STORE_DIR={{ user.home}}/project/.gopass/store gopass --yes setup --alias helen --create --name "Tuomo Syvänperä" --email "tuomo.syvanpera@asteroid.fi"
+#   shell: gopass --yes setup --alias helen --create --name "Tuomo Syvänperä" --email "tuomo.syvanpera@asteroid.fi"
+#   when: not store_details.stat.exists
