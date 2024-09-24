@@ -6,10 +6,10 @@
     dest: "{{ user.home }}/project"
     state: link
 
-- name: Check for existing password store
-  stat:
-    path: "{{ user.home }}/project/.gopass/store"
-  register: store_details
+# - name: Check for existing password store
+#   stat:
+#     path: "{{ user.home }}/project/.gopass/store"
+#   register: store_details
 
 # - name: Initialize password store
 #   become: yes
