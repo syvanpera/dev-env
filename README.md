@@ -17,7 +17,6 @@ or
 ```shell
 ansible-playbook -K bootstrap.yml --extra-vars "project=xxxx"
 ```
-
 ## Disclaimer
 This is just for personal convenience. It's not intended to be highly configurable and I'm most likely not following Ansible's conventions and best practices.
 
