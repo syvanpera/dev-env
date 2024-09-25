@@ -5,6 +5,7 @@ folders:
     - .config
     - .config/systemd/user
     - .local/bin
+    - .ssh
 
 shell:
   aliases:
