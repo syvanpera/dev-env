@@ -22,6 +22,7 @@ packages:
   - bat
   - direnv
   - eza
+  - fish
   - gcc
   - golang
   - jq
@@ -35,7 +36,7 @@ packages:
   - tig
   - tmux
   - unzip
-  - zsh
+  # - zsh
 
 python_packages:
   - black
@@ -52,13 +53,3 @@ rust_packages:
     binary: fd
   - name: git-delta
     binary: delta
-
-ohmyzsh:
-  plugins:
-    - name: "zsh-autosuggestions"
-      repo: "https://github.com/zsh-users/zsh-autosuggestions"
-    - name: "zsh-syntax-highlighting"
-      repo: "https://github.com/zsh-users/zsh-syntax-highlighting"
-  themes:
-    - name: "powerlevel10k"
-      repo: "https://github.com/romkatv/powerlevel10k"
