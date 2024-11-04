@@ -1,8 +1,8 @@
-- name: Add APT repositories
-  become: yes
-  apt_repository:
-    repo: "{{ item }}"
-  loop: "{{ apt_repositories }}"
+# - name: Add APT repositories
+#   become: yes
+#   apt_repository:
+#     repo: "{{ item }}"
+#   loop: "{{ apt_repositories }}"
 
 - name: Install system packages
   become: yes

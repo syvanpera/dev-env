@@ -1,0 +1,16 @@
+- name: Fetch latest nerd fonts release info
+  uri: url="https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest" return_content=yes
+  register: nerd_fonts_release_json
+
+- name: Check if JetBrains Mono is installed
+  shell: "ls {{ user.home }}/.local/share/fonts/JetBrainsMonoNerdFont*"
+  register: jetbrains_exists
+  ignore_errors: yes
+
+- name: Download JetBrains Mono Nerd Font
+  become: yes
+  become_user: "{{ user.name }}"
+  unarchive:
+    src: "{{ nerd_fonts_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'JetBrainsMono.tar.xz')].browser_download_url | [0]\") }}"
+    dest: "{{ user.home }}/.local/share/fonts"
+    remote_src: yes

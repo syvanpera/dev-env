@@ -1,4 +1,5 @@
 - name: Change user login shell to fish
+  become: yes
   user:
     name: "{{ username }}"
     shell: /usr/bin/fish

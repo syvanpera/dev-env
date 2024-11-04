@@ -17,6 +17,15 @@ or
 ```shell
 ansible-playbook -K bootstrap.yml --extra-vars "project=xxxx"
 ```
+
+## Install Nix Home Manager
+```shell
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+nix-shell '<home-manager>' -A install
+```
+
 ## Disclaimer
 This is just for personal convenience. It's not intended to be highly configurable and I'm most likely not following Ansible's conventions and best practices.
 
