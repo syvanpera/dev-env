@@ -1,13 +1,7 @@
-# username: tuomo
-# dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
-
-# shell:
-#   aliases:
-#     vi: nvim
-#     l:  eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions
-#     ll: eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git
-#     ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
-#     cat: batcat
+dotfiles:
+  repo:
+    url: https://github.com/syvanpera/dotfiles.git
+    branch: devbox
 
 apt_repositories:
   - ppa:neovim-ppa/unstable
@@ -20,19 +14,3 @@ packages:
   - ripgrep
   - tig
   - tmux
-
-# python_packages:
-#   - black
-#   - tmuxp
-#
-# rust_packages:
-#   - name: yazi-fm
-#     binary: yazi
-#   - name: yazi-cli
-#     binary: yazi
-#   - name: procs
-#     binary: procs
-#   - name: fd-find
-#     binary: fd
-#   - name: git-delta
-#     binary: delta
