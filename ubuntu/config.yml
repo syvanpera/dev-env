@@ -1,55 +1,55 @@
 username: tuomo
-dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
+# dotfiles_repo_url: https://github.com/syvanpera/dotfiles.git
 folders:
   home:
     - .config
-    - .config/systemd/user
+    # - .config/systemd/user
     - .local/bin
     - .ssh
 
-shell:
-  aliases:
-    vi: nvim
-    l:  eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions
-    ll: eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git
-    ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
-    cat: batcat
-
-apt_repositories:
-  - ppa:neovim-ppa/unstable
-
-packages:
-  - bat
-  - direnv
-  - eza
-  - fish
-  - gcc
-  - golang
-  - jq
-  - neovim
-  - nodejs
-  - npm
-  - pass
-  - pipx
-  - ripgrep
-  - stow
-  - tig
-  - tmux
-  - unzip
-  # - zsh
-
-python_packages:
-  - black
-  - tmuxp
-
-rust_packages:
-  - name: yazi-fm
-    binary: yazi
-  - name: yazi-cli
-    binary: yazi
-  - name: procs
-    binary: procs
-  - name: fd-find
-    binary: fd
-  - name: git-delta
-    binary: delta
+# shell:
+#   aliases:
+#     vi: nvim
+#     l:  eza --color=always --long --group-directories-first --git --no-filesize --icons=always --no-time --no-user --no-permissions
+#     ll: eza -l --group --color=always --group-directories-first --time-style=long-iso --icons --git
+#     ls: eza --group --color=always --group-directories-first --time-style=long-iso --icons
+#     cat: batcat
+#
+# apt_repositories:
+#   - ppa:neovim-ppa/unstable
+#
+# packages:
+#   - bat
+#   - direnv
+#   - eza
+#   - fish
+#   - gcc
+#   - golang
+#   - jq
+#   - neovim
+#   - nodejs
+#   - npm
+#   - pass
+#   - pipx
+#   - ripgrep
+#   - stow
+#   - tig
+#   - tmux
+#   - unzip
+#   # - zsh
+#
+# python_packages:
+#   - black
+#   - tmuxp
+#
+# rust_packages:
+#   - name: yazi-fm
+#     binary: yazi
+#   - name: yazi-cli
+#     binary: yazi
+#   - name: procs
+#     binary: procs
+#   - name: fd-find
+#     binary: fd
+#   - name: git-delta
+#     binary: delta
