@@ -12,5 +12,6 @@ packages:
   - eza
   - neovim
   - ripgrep
+  - stow
   - tig
   - tmux
