@@ -11,7 +11,12 @@ packages:
   - curl
   - direnv
   - eza
+  - gcc
+  - golang
   - neovim
+  - nodejs
+  - npm
+  - unzip
   - ripgrep
   - stow
   - tig
