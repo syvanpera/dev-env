@@ -55,20 +55,6 @@
         include: sesh
         remote_src: yes
 
-    - name: Add custom configs to .zshrc
-      blockinfile:
-        path: "{{ user.home }}/.zshrc"
-        block: |
-          export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH
-
-          source "$HOME/.atuin/bin/env"
-
-          eval "$(fzf --zsh)"
-          eval "$(starship init zsh)"
-          eval "$(zoxide init zsh --cmd cd)"
-          eval "$(direnv hook zsh)"
-          eval "$(atuin init zsh --disable-up-arrow)"
-
     - name: Check if dotfiles are already checked out
       stat:
         path: "{{ user.home }}/.dotfiles"
@@ -98,6 +84,20 @@
         block: |
           [includeIf "gitdir:~/project"]
             path = .gitconfig-asteroid
+
+    - name: Add custom configs to .zshrc
+      blockinfile:
+        path: "{{ user.home }}/.zshrc"
+        block: |
+          export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH
+
+          source "$HOME/.atuin/bin/env"
+
+          eval "$(fzf --zsh)"
+          eval "$(starship init zsh)"
+          eval "$(zoxide init zsh --cmd cd)"
+          eval "$(direnv hook zsh)"
+          eval "$(atuin init zsh --disable-up-arrow)"
 
   become: yes
   become_user: "{{ user.name }}"
