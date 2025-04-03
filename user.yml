@@ -1,0 +1,16 @@
+- user:
+    name: "{{ username }}"
+    state: present
+    append: true
+    groups:
+      - users
+      - sudo
+  register: user
+
+- name: Create home folders
+  become: yes
+  become_user: "{{ user.name }}"
+  file:
+    path: "{{ user.home }}/{{ item }}"
+    state: directory
+  loop: "{{ folders.home }}"

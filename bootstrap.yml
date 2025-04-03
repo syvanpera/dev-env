@@ -4,5 +4,7 @@
   connection: local
 
   tasks:
-    - include_tasks: "ubuntu/bootstrap.yml"
-      when: ansible_distribution == "Ubuntu"
+    - include_vars: "config.yml"
+    - include_tasks: "user.yml"
+    # - include_tasks: "ubuntu/bootstrap.yml"
+    #   when: ansible_distribution == "Ubuntu"
