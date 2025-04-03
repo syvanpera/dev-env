@@ -8,6 +8,7 @@ apt_repositories:
 
 packages:
   - bat
+  - curl
   - direnv
   - eza
   - neovim
