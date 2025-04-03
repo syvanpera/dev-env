@@ -1,0 +1,73 @@
+- block:
+    - name: Check if zoxide is installed
+      stat:
+        path: "{{ user.home }}/.local/bin/zoxide"
+      register: zoxide_status
+      ignore_errors: yes
+
+    - name: Install zoxide
+      when: not zoxide_status.stat.exists
+      shell: |
+        curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+    - name: Check if atuin is installed
+      stat:
+        path: "{{ user.home }}/.atuin/bin/atuin"
+      register: atuin_status
+      ignore_errors: yes
+
+    - name: Install atuin
+      when: not atuin_status.stat.exists
+      shell: |
+        curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+
+    - name: Fetch latest fzf release info
+      uri: url="https://api.github.com/repos/junegunn/fzf/releases/latest" return_content=yes
+      register: fzf_release_json
+
+    - name: Extract latest fzf release tarball
+      become: yes
+      unarchive:
+        src: "{{ fzf_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'linux_amd64')].browser_download_url | [0]\") }}"
+        dest: "{{ user.home }}/.local/bin"
+        remote_src: yes
+
+    - name: Fetch latest lazygit release info
+      uri: url="https://api.github.com/repos/jesseduffield/lazygit/releases/latest" return_content=yes
+      register: lazygit_release_json
+
+    - name: Extract latest lazygit release tarball
+      become: yes
+      unarchive:
+        src: "{{ lazygit_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'Linux_x86_64')].browser_download_url | [0]\") }}"
+        dest: "{{ user.home }}/.local/bin"
+        remote_src: yes
+
+    - name: Fetch latest sesh release info
+      uri: url="https://api.github.com/repos/joshmedeski/sesh/releases/latest" return_content=yes
+      register: sesh_release_json
+
+    - name: Extract latest sesh release tarball
+      become: yes
+      unarchive:
+        src: "{{ sesh_release_json.content|from_json|community.general.json_query(\"assets[?contains(browser_download_url, 'Linux_x86_64')].browser_download_url | [0]\") }}"
+        dest: "{{ user.home }}/.local/bin"
+        include: sesh
+        remote_src: yes
+
+    - name: Add custom configs to .zshrc
+      blockinfile:
+        path: "{{ user.home }}/.zshrc"
+        block: |
+          export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH
+
+          source "$HOME/.atuin/bin/env"
+
+          eval "$(fzf --zsh)"
+          eval "$(starship init zsh)"
+          eval "$(zoxide init zsh --cmd cd)"
+          eval "$(direnv hook zsh)"
+          eval "$(atuin init zsh --disable-up-arrow)"
+
+  become: yes
+  become_user: "{{ user.name }}"
