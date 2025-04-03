@@ -20,7 +20,6 @@ packages:
   - ripgrep
   - tig
   - tmux
-  - zsh
 
 # python_packages:
 #   - black
