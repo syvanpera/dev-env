@@ -1,10 +1,6 @@
 - user:
     name: "{{ username }}"
     state: present
-    append: true
-    groups:
-      - users
-      - sudo
   register: user
 
 - name: Create home folders
