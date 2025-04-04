@@ -5,5 +5,9 @@
   ignore_errors: yes
 - name: Install nix
   when: not nix_status.stat.exists
-  shell: |
-    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+  shell: sh <(curl -L https://nixos.org/nix/install) --daemon </dev/null
+- name: Enable flakes support
+  when: not nix_status.stat.exists
+  lineinfile:
+    path: /etc/nix/nix.conf
+    line: "experimental-features = nix-command flakes"
