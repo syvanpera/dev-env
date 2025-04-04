@@ -127,6 +127,7 @@
         export PATH=$HOME/.local/bin:$HOME/go/bin:$PATH
 
         source "$HOME/.atuin/bin/env"
+        source "$HOME/.cargo/env"
 
         eval "$(fzf --zsh)"
         eval "$(starship init zsh)"
