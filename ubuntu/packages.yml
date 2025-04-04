@@ -16,10 +16,24 @@
 #   shell: pipx install {{ item }}
 #   loop: "{{ python_packages }}"
 
-# - name: Install rust packages
-#   community.general.cargo:
-#     executable: "{{ user.home }}/.cargo/bin/cargo"
-#     name: "{{ rust_packages }}"
+- block:
+    - name: Check if cargo is installed
+      stat:
+        path: "{{ user.home }}/.cargo/bin/cargo"
+      register: cargo_status
+      ignore_errors: yes
+
+    - name: Install rust toolchain with rustup
+      when: not cargo_status.stat.exists
+      shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+  become_user: "{{ user.name }}"
+  become: yes
+
+- name: Install rust packages
+  community.general.cargo:
+    executable: "{{ user.home }}/.cargo/bin/cargo"
+    name: "{{ rust_packages }}"
 
 - name: Check if starship is installed
   stat:
