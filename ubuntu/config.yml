@@ -3,8 +3,8 @@ dotfiles:
     url: https://github.com/syvanpera/dotfiles.git
     branch: devbox
 
-apt_repositories:
-  - ppa:neovim-ppa/unstable
+# apt_repositories:
+#   - ppa:neovim-ppa/unstable
 
 packages:
   - bat
@@ -15,7 +15,7 @@ packages:
   - gcc
   - golang
   - jq
-  - neovim
+  # - neovim
   - nodejs
   - npm
   - unzip

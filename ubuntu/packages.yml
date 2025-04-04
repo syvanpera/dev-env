@@ -1,8 +1,8 @@
-- name: Add APT repositories
-  become: yes
-  apt_repository:
-    repo: "{{ item }}"
-  loop: "{{ apt_repositories }}"
+# - name: Add APT repositories
+#   become: yes
+#   apt_repository:
+#     repo: "{{ item }}"
+#   loop: "{{ apt_repositories }}"
 
 - name: Install system packages
   become: yes
@@ -44,3 +44,16 @@
 - name: Install starship
   when: not starship_status.stat.exists
   shell: curl https://starship.rs/install.sh -sSf | sh -s -- -y
+
+- name: Check if neovim is installed
+  stat:
+    path: "/usr/local/bin/nvim"
+  register: nvim_status
+  ignore_errors: yes
+
+- name: Install neovim
+  when: not nvim_status.stat.exists
+  shell: |
+    cd /tmp
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    sudo tar -C /usr/local -xzf nvim-linux-x86_64.tar.gz --strip-components=1
