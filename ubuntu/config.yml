@@ -21,3 +21,4 @@ packages:
   - stow
   - tig
   - tmux
+  - zsh
