@@ -23,12 +23,12 @@
       shell: "nvim --headless \"+Lazy! sync\" +qa"
     when: not dotfiles_status.stat.exists
 
-  - name: Add custom configs to .gitconfig
-    blockinfile:
-      path: "{{ user.home }}/.gitconfig"
-      block: |
-        [includeIf "gitdir:~/project"]
-          path = .gitconfig-asteroid
+  # - name: Add custom configs to .gitconfig
+  #   blockinfile:
+  #     path: "{{ user.home }}/.gitconfig"
+  #     block: |
+  #       [includeIf "gitdir:~/project"]
+  #         path = .gitconfig-asteroid
 
   - name: Add custom configs to .zshrc
     blockinfile:
