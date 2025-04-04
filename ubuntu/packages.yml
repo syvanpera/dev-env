@@ -27,13 +27,13 @@
       when: not cargo_status.stat.exists
       shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+    - name: Install rust packages
+      community.general.cargo:
+        executable: "{{ user.home }}/.cargo/bin/cargo"
+        name: "{{ rust_packages }}"
+
   become_user: "{{ user.name }}"
   become: yes
-
-- name: Install rust packages
-  community.general.cargo:
-    executable: "{{ user.home }}/.cargo/bin/cargo"
-    name: "{{ rust_packages }}"
 
 - name: Check if starship is installed
   stat:

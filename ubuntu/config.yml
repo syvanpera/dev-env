@@ -11,8 +11,10 @@ packages:
   - curl
   - direnv
   - eza
+  - file
   - gcc
   - golang
+  - jq
   - neovim
   - nodejs
   - npm
@@ -24,13 +26,8 @@ packages:
   - zsh
 
 rust_packages:
-  - name: yazi-fm
-    binary: yazi
-  - name: yazi-cli
-    binary: yazi
-  - name: procs
-    binary: procs
-  - name: fd-find
-    binary: fd
-  - name: git-delta
-    binary: delta
+  - fd-find
+  - git-delta
+  - procs
+  - yazi-fm
+  - yazi-cli
