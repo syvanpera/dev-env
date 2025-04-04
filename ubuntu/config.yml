@@ -22,3 +22,15 @@ packages:
   - tig
   - tmux
   - zsh
+
+rust_packages:
+  - name: yazi-fm
+    binary: yazi
+  - name: yazi-cli
+    binary: yazi
+  - name: procs
+    binary: procs
+  - name: fd-find
+    binary: fd
+  - name: git-delta
+    binary: delta
