@@ -12,3 +12,8 @@
   lineinfile:
     path: /etc/nix/nix.conf
     line: "experimental-features = nix-command flakes"
+- name: Add nix trusted users
+  when: not nix_status.stat.exists
+  lineinfile:
+    path: /etc/nix/nix.conf
+    line: "trusted-users = root {{username}}"
