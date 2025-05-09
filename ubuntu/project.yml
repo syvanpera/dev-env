@@ -2,7 +2,7 @@
   become: yes
   become_user: "{{ user.name }}"
   file:
-    src: "/data/projects/{{ project }}"
+    src: "/mnt/project/{{ project }}"
     dest: "{{ user.home }}/project"
     state: link
 
