@@ -7,13 +7,9 @@
   when: not nix_status.stat.exists
   shell: |
     curl -L https://nixos.org/nix/install | sh -s -- --daemon
-- name: Enable flakes support
-  when: not nix_status.stat.exists
-  lineinfile:
+- name: Configure nix
+  blockinfile:
     path: /etc/nix/nix.conf
-    line: "experimental-features = nix-command flakes"
-- name: Add nix trusted users
-  when: not nix_status.stat.exists
-  lineinfile:
-    path: /etc/nix/nix.conf
-    line: "trusted-users = root {{username}}"
+    block: |
+      experimental-features = nix-command flakes
+      trusted-users = root {{username}}
