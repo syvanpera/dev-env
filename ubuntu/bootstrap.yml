@@ -4,6 +4,7 @@
 - include_tasks: "nix.yml"
 - include_tasks: "user.yml"
 - include_tasks: "project.yml"
+- include_tasks: "secrets.yml"
 # - include_tasks: "rust.yml"
 # - include_tasks: "dotfiles.yml"
 # - include_tasks: "shell.yml"
