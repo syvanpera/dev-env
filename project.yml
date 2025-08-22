@@ -65,10 +65,12 @@
         - name: Display final instructions
           ansible.builtin.debug:
             msg: |
-              ✅ SUCCESS! Your password store is ready in ~/project/.password-store.
-              To use it, you MUST set the PASSWORD_STORE_DIR environment variable.
-              Add the following line to your ~/.bashrc or ~/.zshrc file:
+              ✅ SUCCESS! Your project environment is ready.
+              - A password store has been initialized in ~/project/.password-store.
+              - An .envrc file has been created for use with direnv.
 
-              export PASSWORD_STORE_DIR={{ user.home }}/project/.password-store
+              Next steps:
+              1. cd into your ~/project directory.
+              2. Run 'direnv allow' to load the environment variables.
   become_user: "{{ user.name }}"
   become: yes
