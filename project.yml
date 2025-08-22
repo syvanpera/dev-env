@@ -53,6 +53,15 @@
           when: not pass_store_stat.stat.exists
           changed_when: true
 
+        - name: Create .envrc file for direnv
+          ansible.builtin.copy:
+            dest: "{{ user.home }}/project/.envrc"
+            content: |
+              export PROJECT={{ project }}
+              export PROJECT_DIR=$(pwd)
+              export PASSWORD_STORE_DIR=$PROJECT_DIR/.password-store
+            mode: '0644'
+
         - name: Display final instructions
           ansible.builtin.debug:
             msg: |
