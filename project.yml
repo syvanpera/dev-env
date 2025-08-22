@@ -37,17 +37,17 @@
 
         - name: Create project directory if it does not exist
           ansible.builtin.file:
-            path: "{{ ansible_env.HOME }}/project"
+            path: "{{ user.home }}/project"
             state: directory
             mode: '0755'
 
         - name: Check if password store already exists
           ansible.builtin.stat:
-            path: "{{ ansible_env.HOME }}/project/.password-store"
+            path: "{{ user.home }}/project/.password-store"
           register: pass_store_stat
 
         - name: Initialize password store in ~/project
-          ansible.builtin.command: "pass init --path {{ ansible_env.HOME }}/project/.password-store {{ gpg_key_id_result.stdout }}"
+          ansible.builtin.command: "pass init --path {{ user.home }}/project/.password-store {{ gpg_key_id_result.stdout }}"
           when: not pass_store_stat.stat.exists
           changed_when: true
 
@@ -58,6 +58,6 @@
               To use it, you MUST set the PASSWORD_STORE_DIR environment variable.
               Add the following line to your ~/.bashrc or ~/.zshrc file:
 
-              export PASSWORD_STORE_DIR={{ ansible_env.HOME }}/project/.password-store
+              export PASSWORD_STORE_DIR={{ user.home }}/project/.password-store
   become_user: "{{ user.name }}"
   become: yes
