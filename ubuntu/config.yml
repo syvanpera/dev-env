@@ -14,6 +14,7 @@ packages:
   - file
   - gcc
   - golang
+  - gnupg
   - jq
   # - neovim
   - nodejs
@@ -23,6 +24,7 @@ packages:
   - python3-venv
   - unzip
   - ripgrep
+  - rng-tools
   - stow
   - tig
   - tmux

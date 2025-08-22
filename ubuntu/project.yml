@@ -1,10 +1,17 @@
-- name: Create project directory symlink
+- name: Create project directory
   become: yes
   become_user: "{{ user.name }}"
   file:
-    src: "/mnt/project/{{ project }}"
-    dest: "{{ user.home }}/project"
-    state: link
+    path: "{{ user.home }}/project"
+    state: directory
+
+# - name: Create project directory symlink
+#   become: yes
+#   become_user: "{{ user.name }}"
+#   file:
+#     src: "/mnt/project/{{ project }}"
+#     dest: "{{ user.home }}/project"
+#     state: link
 
 # - name: Check for existing password store
 #   stat:
