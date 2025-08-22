@@ -13,8 +13,16 @@
     - name: gpg_passphrase
       prompt: "Enter the passphrase for your new GPG key"
       private: yes
+    - name: gpg_passphrase_confirm
+      prompt: "Confirm the passphrase"
+      private: yes
 
   tasks:
+    - name: Verify that GPG passphrases match
+      ansible.builtin.fail:
+        msg: "❌ ERROR: The passphrases you entered do not match. Please run the playbook again."
+      when: gpg_passphrase != gpg_passphrase_confirm
+      become: no
     - include_vars: "config.yml"
     - include_tasks: "user.yml"
     - include_tasks: "ubuntu/bootstrap.yml"
