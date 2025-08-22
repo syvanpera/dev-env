@@ -46,8 +46,10 @@
             path: "{{ user.home }}/project/.password-store"
           register: pass_store_stat
 
-        - name: Initialize password store in ~/project
-          ansible.builtin.command: "pass init --path {{ user.home }}/project/.password-store {{ gpg_key_id_result.stdout }}"
+        - name: Initialize password store in project directory
+          ansible.builtin.command: "pass init {{ gpg_key_id_result.stdout }}"
+          environment:
+            PASSWORD_STORE_DIR: "{{ user.home }}/project/.password-store"
           when: not pass_store_stat.stat.exists
           changed_when: true
 
