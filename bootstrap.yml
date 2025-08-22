@@ -3,8 +3,20 @@
   hosts: 127.0.0.1
   connection: local
 
+  vars_prompt:
+    - name: gpg_name
+      prompt: "Enter your full name for the GPG key"
+      private: no
+    - name: gpg_email
+      prompt: "Enter your email for the GPG key"
+      private: no
+    - name: gpg_passphrase
+      prompt: "Enter the passphrase for your new GPG key"
+      private: yes
+
   tasks:
     - include_vars: "config.yml"
     - include_tasks: "user.yml"
     - include_tasks: "ubuntu/bootstrap.yml"
+    - include_tasks: "project.yml"
       when: ansible_distribution == "Ubuntu"

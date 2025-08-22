@@ -1,44 +1,5 @@
----
-- name: Initialize GnuPG and Password Store
-  hosts: localhost
-  connection: local
-  gather_facts: yes
-  become: yes # Apply privilege escalation to the whole play
-
-  vars_prompt:
-    - name: gpg_name
-      prompt: "Enter your full name for the GPG key"
-      private: no
-    - name: gpg_email
-      prompt: "Enter your email for the GPG key"
-      private: no
-    - name: gpg_passphrase
-      prompt: "Enter the passphrase for your new GPG key"
-      private: yes
-
-  tasks:
-    - name: 1. Ensure required packages are installed (for Debian/Ubuntu)
-      ansible.builtin.apt:
-        name:
-          - gnupg2
-          - pass
-          - rng-tools
-        state: present
-        update_cache: yes
-      when: ansible_os_family == "Debian"
-
-    - name: 2. Ensure entropy service is running for key generation
-      ansible.builtin.service:
-        name: rng-tools
-        state: started
-        enabled: yes
-      when: ansible_os_family == "Debian"
-      ignore_errors: yes
-
-    # The following tasks will be run as the regular user
-    # 'become: no' ensures we are not running as root
-    - name: 3. GPG and Pass setup
-      become: no
+- block:
+    - name: Initialize project directory and GnuPG and Password Store
       block:
         - name: Check if GPG key already exists for the email
           ansible.builtin.shell: "gpg --list-secret-keys '{{ gpg_email }}'"
@@ -76,17 +37,17 @@
 
         - name: Create project directory if it does not exist
           ansible.builtin.file:
-            path: "/home/tuomo/project"
+            path: "{{ ansible_env.HOME }}/project"
             state: directory
             mode: '0755'
 
         - name: Check if password store already exists
           ansible.builtin.stat:
-            path: "/home/tuomo/project/.password-store"
+            path: "{{ ansible_env.HOME }}/project/.password-store"
           register: pass_store_stat
 
         - name: Initialize password store in ~/project
-          ansible.builtin.command: "pass init --path /home/tuomo/project/.password-store {{ gpg_key_id_result.stdout }}"
+          ansible.builtin.command: "pass init --path {{ ansible_env.HOME }}/project/.password-store {{ gpg_key_id_result.stdout }}"
           when: not pass_store_stat.stat.exists
           changed_when: true
 
@@ -97,4 +58,6 @@
               To use it, you MUST set the PASSWORD_STORE_DIR environment variable.
               Add the following line to your ~/.bashrc or ~/.zshrc file:
 
-              export PASSWORD_STORE_DIR=/home/tuomo/project/.password-store
+              export PASSWORD_STORE_DIR={{ ansible_env.HOME }}/project/.password-store
+  become_user: "{{ user.name }}"
+  become: yes
