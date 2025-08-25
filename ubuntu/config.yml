@@ -17,8 +17,8 @@ packages:
   - gnupg
   - jq
   # - neovim
-  - nodejs
-  - npm
+  # - nodejs
+  # - npm
   - pass
   - python3
   - python3-venv
