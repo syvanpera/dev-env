@@ -2,7 +2,7 @@
     - name: Initialize project directory and GnuPG and Password Store
       block:
         - name: Check if GPG key already exists for the email
-          ansible.builtin.shell: "gpg --list-secret-keys '{{ gpg_email }}'"
+          ansible.builtin.shell: "gpg --list-secret-keys '{{ email }}'"
           register: gpg_key_check
           changed_when: false
           failed_when: false
@@ -28,7 +28,7 @@
         - name: Get the GPG key ID
           ansible.builtin.shell: >
             set -o pipefail &&
-            gpg --list-secret-keys --with-colons '{{ gpg_email }}' |
+            gpg --list-secret-keys --with-colons '{{ email }}' |
             awk -F: '/^sec/{print $5}'
           args:
             executable: /bin/bash

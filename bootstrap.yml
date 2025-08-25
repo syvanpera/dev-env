@@ -4,16 +4,19 @@
   connection: local
 
   vars_prompt:
-    - name: gpg_name
-      prompt: "Enter your full name for the GPG key"
+    - name: fullname
+      prompt: "Enter your full name"
       private: no
-    - name: gpg_email
-      prompt: "Enter your email for the GPG key"
+    - name: username
+      prompt: "Enter your username"
       private: no
-    - name: gpg_passphrase
+    - name: email
+      prompt: "Enter your email"
+      private: no
+    - name: passphrase
       prompt: "Enter the passphrase for your new GPG key"
       private: yes
-    - name: gpg_passphrase_confirm
+    - name: passphrase_confirm
       prompt: "Confirm the passphrase"
       private: yes
 
@@ -21,7 +24,7 @@
     - name: Verify that GPG passphrases match
       ansible.builtin.fail:
         msg: "❌ ERROR: The passphrases you entered do not match. Please run the playbook again."
-      when: gpg_passphrase != gpg_passphrase_confirm
+      when: passphrase != passphrase_confirm
       become: no
     - include_vars: "config.yml"
     - include_tasks: "user.yml"
