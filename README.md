@@ -26,6 +26,7 @@ This is just for personal convenience. It's not intended to be highly configurab
 use [nodesource](https://github.com/nodesource/distributions/blob/master/README.md)
 - Generate ssh keys
 - Install devenv (for now, just run: `nix profile install nixpkgs#devenv`)
+- Install gemini cli with npm
 
 ## License
 [MIT License](LICENSE)

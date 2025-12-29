@@ -12,6 +12,7 @@ packages:
   - direnv
   - eza
   - file
+  - fish
   - gcc
   - golang
   - gnupg

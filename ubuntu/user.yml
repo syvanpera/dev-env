@@ -130,7 +130,7 @@
   become: yes
   become_user: "{{ user.name }}"
 
-- name: Change user login shell to zsh
+- name: Change user login shell to fish
   user:
     name: "{{ user.name }}"
-    shell: /usr/bin/zsh
+    shell: /usr/bin/fish
